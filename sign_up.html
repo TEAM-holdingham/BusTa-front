@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>회원가입_1</title>
+    <style>
+      #bg {
+        background-color: rgb(239, 243, 255);
+        color: black;
+        width: 300px;
+        height: 450px;
+        font-size: 10px;
+        padding: 14px;
+      }
+      #ContractText1 {
+        background-color: white;
+        color: black;
+        stroke: black;
+        width: 250px;
+        height: 70px;
+        font-size: 5px;
+        margin: 10px;
+        border: 0.5px solid rgb(54, 54, 54);
+        padding: 8px;
+      }
+      #ContractText2 {
+        background-color: white;
+        color: black;
+        stroke: black;
+        width: 250px;
+        height: 70px;
+        font-size: 5px;
+        margin: 10px;
+        border: 0.5px solid rgb(54, 54, 54);
+        padding: 8px;
+      }
+    </style>
+  </head>
+  <body style="background-color: #91b6fa">
+    <header>
+      <img src="./assets/signup_logo_white.png" width="40px" />
+      <h3 style="color: rgb(255, 255, 255)">
+        <span style="font-size: 20px"><b>회원가입</b></span
+        ><span style="font-size: 10px; color: #ddff8f"> [약관동의]</span>
+      </h3>
+      <p style="margin: 0">1/2</p>
+    </header>
+    <div id="bg">
+      <form class="contract" action="sign_up.html">
+        <input type="checkbox" /><b>전체 동의하기</b>
+        <p style="padding-left: 15px; padding-right: 15px">
+          이메일 인증된 아이디로 가입, 개인정보 동의서, 이벤트・혜택 정보
+          수신(선택) 동의를 포함합니다.
+        </p>
+        <br />
+        <input type="checkbox" required /><b>BST 이용약관</b>
+        <div id="ContractText1">
+          냐냐냐ㅑㄴ어쩌고저쩌고 이용 이용약관 우하하하 아ㅏ하핳하하하하
+          동의하세요
+        </div>
+        <br />
+        <input type="checkbox" required /><b>개인정보 수집 및 이용</b>
+        <div id="ContractText2">
+          냐냐냐ㅑㄴ어쩌고저쩌고 이용 이용약관 우하하하 아ㅏ하핳하하하하
+          동의하세요
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
