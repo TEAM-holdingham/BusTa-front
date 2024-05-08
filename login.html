@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>로그인_1</title>
+        <link rel="stylesheet" href="./style_login.css" />
+    </head>
+    <body style="background: linear-gradient(45deg,#B8FDC8, #BFD6FF)">
+        <header>
+            <img
+                src="./assets/signup_logo_white.png"
+                width="100px"
+                style="margin-top: 25px"
+            />
+            <div style="justify-content: center; margin-top: 40px">
+                <span style="color: white; font-size: 25px"><b>이메일 찾기</b></span>
+            </div>
+            <div style ="justify-content: center; margin-top: 60px">
+                <span style="font-size: 18px; color: white; margin-right: 300px">전화번호를 입력하세요</span>
+            </div>
+            <div class="numberbox">
+                <form>
+                    <input type="text" id = "phonenum" pattern="[0-9]{11}" required="required" placeholder="-(하이픈) 제외 모든 자리 입력" size = 40>
+                    <button>인증</button>
+                </form>
+            </div>
+            <div class="인증box">
+                <form>
+                    <input type="text" id = "checknum" placeholder="인증번호 확인" size = 40>
+                    <button>확인</button>
+                </form>
+            </div>
+
+            
+        </header>
+    </body>
+</html>
