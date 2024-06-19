@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sidenav Example</title>
+    <link rel="stylesheet" href="style_sidebar.css">
+</head>
+<body>
+    <span class="arrow" onclick="toggleNav()">&#9776;</span>
+
+    <div id="mySidenav" class="sidenav">
+        <a href="#" class="closebtn" onclick="toggleNav()">&#9776;</a>
+        <a href="#" class="home-link">홈</a>
+        <a href="#" class="record-link">나의 기록</a>
+        <a href="#" class="mypage-link">마이페이지</a>
+        <a href="#" class="friend-link">친구 관리</a>
+        <a href="#" class="setting-link">설정
+          <img src="setting.JPG" alt="설정이미지">
+        </a>
+    </div>
+
+    <div id="main">
+        <h2>내용이 들어가는 부분</h2>
+    </div>
+
+    <script src="sidebar.js"></script>
+</body>
+</html>
