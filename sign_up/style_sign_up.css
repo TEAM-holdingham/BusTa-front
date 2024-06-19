@@ -2,35 +2,78 @@
   box-sizing: border-box;
 }
 
-body {
-  width: 100vh;
-  height: 100vh;
-  margin: auto;
+.p1 {
+  display: flex;
+  justify-content: center;
   text-align: center;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(#f0f0f0, #91b6fa);
+  text-align: center;
+}
+
+header {
+  width: 100%;
+  text-align: center;
+  margin-top: 0px;
 }
 
 .bg {
   background-color: #ffffff;
   color: black;
   width: 600px;
-  height: 500px;
+  height: 540px;
   font-size: 15px;
   border-radius: 25px;
-  box-shadow: 0px 0px 10px #444444;
-  box-shadow: -3px -3px 10px 3px inset rgb(214, 214, 214);
+  box-shadow: 0px 0px 10px #313c6584,
+    -3px -3px 10px 3px inset rgb(214, 214, 214);
   border: 1px solid rgb(54, 54, 54);
-  margin: 0 auto;
-  text-align: left;
-  padding: 25px 25px 25px 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Change from space-between to flex-start */
+  align-items: center;
+  padding: 25px;
+  margin-top: 5px;
 }
+
+form {
+  width: 100%;
+}
+
+input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  margin: 5px 0;
+}
+
+.ContractText-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 10px; /* Adjusted margin-bottom */
+}
+
 .ContractText {
+  display: flex;
   background-color: white;
   color: black;
-  stroke: black;
   width: 500px;
   height: 80px;
   font-size: 11px;
-  margin: 10px 10px 10px 10px;
   border: 1px solid rgb(54, 54, 54);
   padding: 8px;
   overflow-y: scroll;
@@ -42,6 +85,7 @@ body {
   width: 8px;
   overflow: hidden;
 }
+
 .ContractText::-webkit-scrollbar-thumb {
   background-color: #91b6fa;
   border-radius: 5px;
@@ -49,19 +93,42 @@ body {
   border: 1.5px solid transparent;
   background-clip: padding-box;
 }
+
 .ContractText::-webkit-scrollbar-track {
   background-color: #ffffff00;
   border-radius: 5px;
 }
 
 .p1 {
-  padding: 0px 10px 0px 10px;
+  padding: 0 10px;
   font-size: 13px;
-  text-align: center;
+  text-align: left;
 }
 
-/*
-.Button {
-
+input[type="button"] {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px; /* 예시로 추가 */
+  appearance: none;
+  background-color: transparent;
+  font-size: 13px;
+  color: #6b6b6b;
+  border: none; /* 기본 border 제거 */
 }
-*/
+
+.Button input[type="submit"] {
+  width: 490px;
+  height: 40px;
+  border: none;
+  border-radius: 20px;
+  background-color: #1c1c1c;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 20px 0 0 0;
+}
+
+.Button input[type="submit"]:hover {
+  background-color: #3a3a3a;
+}
