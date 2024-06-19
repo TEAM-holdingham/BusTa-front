@@ -3,32 +3,27 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>로그인_1</title>
-        <link rel="stylesheet" href="./style_login.css" />
+        <title>find_email-1</title>
+        <link rel="stylesheet" href="./style_find_email-1.css" />
     </head>
-    <body style="background: linear-gradient(to right, #B8FDC8, #BFD6FF, white)">
-        <div>
-            <div>
-                
-            </div>
-        </div>
+    <body style="background: linear-gradient(to top right, #B8FDC8, #BFD6FF, white)">
         <header>
             <img
-                src="./assets/signup_logo_white.png"
+                src="../assets/signup_logo_white.png"
                 width="100px"
                 style="margin-top: 25px"
             />
         </header>
-        <div class="login-wrapper">
+        <div class="emailfind1-wrapper">
             <h2>이메일 찾기</h2>
             
-            <form method="post" action="서버의 url" id="login-form">
+            <form method="post" action="서버의 url" id="emailfind1-form">
                 <span style="font-size: 18px; position: absolute; color: white; margin-top: -30px; margin-left: 15px">전화번호를 입력하세요</span>                            
-                <input type="text" name="phonenum" pattern="[0-9]{11}" placeholder="-(하이픈) 제외 모든 자리 입력"   required="required" placeholder="-(하이픈) 제외 모든 자리 입력" size = 40>
+                <input type="text" name="phonenum" pattern="[0-9]{11}" placeholder="-(하이픈) 제외 모든 자리 입력"   required="required" placeholder="-(하이픈) 제외 모든 자리 입력" maxlength="11">
                 <button class="inner-button1" type="button"><span>인증</span></button><br>
                 <input type="text" name = "checknum" placeholder="인증번호 확인" size = 40>
                 <button class="inner-button2" type="button"><span>확인</span></button><br>
-                <input class="nextbutton" type="submit" value="다음으로">
+                <button class="nextbutton" type="button" onClick="location.href='find_email-2.html'">다음으로</button>
                 <button class="nobutton" type="button"><span>취소</span></button>
             </form>
         </div>
