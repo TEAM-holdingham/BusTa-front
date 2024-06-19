@@ -87,17 +87,3 @@ button.to_signup{
     border-radius: 30px;
     cursor: pointer;
 }
-
-.checkbox-container {
-    display: flex;
-    align-items: center;
-    color: #fff;
-}
-
-.checkbox {
-    margin-right: 100px;
-}
-
-.checkbox-label {
-    font-size: 16px;
-}
