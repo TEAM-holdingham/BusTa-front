@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>회원가입_2</title>
+    <link rel="stylesheet" href="./style_sign_up.css" />
+    <!-- FontAwesome CDN 추가 -->
+    <script
+      src="https://kit.fontawesome.com/9125fcc41c.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header>
+      <img
+        src="../assets/signup_logo_white.png"
+        width="100px"
+        style="margin-top: 20px"
+      />
+      <div style="justify-content: center; margin-top: 10px">
+        <span style="color: #444444; font-size: 35px"><b>회원가입</b></span>
+        <span style="font-size: 20px; color: #6a88c0; margin-right: 330px"
+          >[정보입력]</span
+        >
+        <span style="color: #6a88c0; font-size: 25px"><b>2/2</b></span>
+      </div>
+    </header>
+    <div class="bg2">
+      <form action="">
+        <!--입력 정보-->
+        <div class="input-group">
+          <!--이메일 입력-->
+          <div class="input-label">
+            <label for="email">이메일</label>
+            <span class="description">이메일 주소를 입력해 주세요.</span>
+          </div>
+          <div class="email-input">
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              placeholder="ex: seungyeon123"
+            />
+            <div style="font-size: 20px; text-align: center; width: 30px">
+              @
+            </div>
+            <select id="emailDomain">
+              <option value="gmail.com">gmail.com</option>
+              <option value="naver.com">naver.com</option>
+              <option value="daum.net">daum.net</option>
+              <option value="hanmail.net">hanmail.net</option>
+              <!-- 기타 추가할 도메인 옵션 -->
+            </select>
+          </div>
+        </div>
+        <div class="input-group">
+          <!--닉네임 입력-->
+          <div class="input-label">
+            <label for="nickname">닉네임</label>
+            <span class="description"
+              >2~10자, 한글/영어/숫자 입력 가능, 중복 불가</span
+            >
+          </div>
+          <div class="nickname-input">
+            <input type="text" id="nickname" name="nickname" required />
+            <button id="checkNicknameBtn">중복 확인</button>
+          </div>
+        </div>
+        <div class="input-group">
+          <!--비밀번호 입력-->
+          <div class="input-label">
+            <label for="password">비밀번호</label>
+            <span class="description"
+              >영어 대/소문자, 특수문자(~/!/@/#/*), 숫자 입력 가능</span
+            >
+          </div>
+          <div class="password-input">
+            <input type="password" id="password" name="password" required />
+            <button id="showPassword" type="button">
+              <i class="fa-solid fa-eye"></i>
+            </button>
+          </div>
+        </div>
+        <!--입력 정보-->
+        <div class="signUpButton">
+          <input type="submit" value="가입하기" />
+        </div>
+      </form>
+      <div class="cancelBtn">
+        <input
+          type="button"
+          value="이전"
+          onclick="goBack()"
+          style="cursor: pointer"
+        />
+      </div>
+    </div>
+    <script src="script_sign_up.js"></script>
+  </body>
+</html>

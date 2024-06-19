@@ -44,6 +44,24 @@ header {
   margin-top: 5px;
 }
 
+.bg2 {
+  background-color: #ffffff;
+  color: black;
+  width: 600px;
+  height: 840px;
+  font-size: 15px;
+  border-radius: 25px;
+  box-shadow: 0px 0px 10px #313c6584,
+    -3px -3px 10px 3px inset rgb(214, 214, 214);
+  border: 1px solid rgb(54, 54, 54);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Change from space-between to flex-start */
+  align-items: center;
+  padding: 25px;
+  margin-top: 5px;
+}
+
 form {
   width: 100%;
 }
@@ -131,4 +149,115 @@ input[type="button"] {
 
 .Button input[type="submit"]:hover {
   background-color: #3a3a3a;
+}
+
+.signUpButton input[type="submit"] {
+  width: 490px;
+  height: 40px;
+  border: none;
+  border-radius: 20px;
+  background-color: #3d5af1;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 20px 0 0 0;
+}
+
+.signUpButton input[type="submit"]:hover {
+  background-color: #6781ff;
+}
+
+.input-group {
+  padding: 10px;
+}
+/* input-label */
+.input-label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 10px; /* 간격 조정 */
+}
+
+.input-label label {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.email-input {
+  display: flex;
+  align-items: left;
+  margin-top: 5px; /* 입력 칸과 설명 사이의 간격 */
+}
+
+.email-input select {
+  padding: 6px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+}
+
+.nickname-input {
+  display: flex;
+  align-items: left;
+  margin-top: 5px; /* 입력 칸과 설명 사이의 간격 */
+}
+
+.nickname-input button {
+  appearance: none;
+  margin-left: 10px;
+  background-color: #3d5af1;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 12px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.nickname-input button:hover {
+  background-color: #6781ff;
+}
+
+.password-input {
+  display: flex;
+  align-items: left;
+  margin-top: 5px; /* 입력 칸과 설명 사이의 간격 */
+}
+
+.password-input button {
+  width: 40px; /* 버튼의 너비를 조정합니다. */
+  appearance: none;
+  margin-left: 3px;
+  background-color: white;
+  color: #bdbdbd;
+  border: none;
+  font-size: 19px; /* 아이콘의 크기를 조정합니다. */
+  cursor: pointer;
+  display: flex;
+  justify-content: center; /* 가운데 정렬을 설정합니다. */
+  align-items: center; /* 버튼 안에서 아이콘이 세로 가운데 정렬되도록 설정합니다. */
+}
+
+.password-input button i {
+  text-align: center; /* 아이콘 텍스트를 가운데 정렬합니다. */
+}
+
+.description {
+  font-size: 12px;
+  color: #666;
+  text-align: left; /* 설명 텍스트를 왼쪽 정렬로 */
+  margin-top: 5px; /* 간격 조정 */
+}
+
+/* input field */
+input[type="email"],
+input[type="password"],
+input[type="text"],
+input[type="nickname"] {
+  width: 270px;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
 }
