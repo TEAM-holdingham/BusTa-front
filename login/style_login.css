@@ -18,10 +18,10 @@ body{
 } /*로고 위치*/
 
 .login-wrapper > h2{
-    font-size: 24px;
+    font-size: 30px;
     color: #fff;
     margin-top: 90px;
-    margin-right: 300px;
+    margin-right: 280px;
     margin-bottom: 10px;
 }
 
@@ -69,7 +69,7 @@ input:-webkit-autofill {
 button.mainlogin{
     width: 450px;
     height: 35px;
-    margin-top: 40px;
+    margin-top: 25px;
     font-size: 15px;
     color: #fff;
     background-color: #000;
@@ -86,4 +86,33 @@ button.to_signup{
     background-color: transparent;
     border-radius: 30px;
     cursor: pointer;
+}
+
+.page_center{
+    display: flex;
+    align-items: center;
+}
+
+label[for="remember"] {
+    font-size: 15px;
+    color: #fff;
+    margin-left: 5px;
+}
+
+button.findemail{
+    margin-left: 150px;
+    background-color: transparent;
+    margin-right: 5px;
+    color: #5F5F60;
+}
+
+span{
+    font-size: 13px;
+    color: #5F5F60;
+}
+
+button.findpassword{
+    margin-left: 5px;
+    background-color: transparent;
+    color: #5F5F60;
 }
