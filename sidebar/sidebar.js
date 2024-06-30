@@ -1,5 +1,5 @@
 window.onload = function() {
-    closeNav(); // 초기에 사이드바를 닫도록 수정
+    openNav(); // 초기에 사이드바가 열려있도록 설정
 }
 
 function toggleNav() {
@@ -19,6 +19,6 @@ function openNav() {
 }
 
 function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-    document.getElementById("main").style.marginLeft = "0";
+    document.getElementById("mySidenav").style.width = "0px";
+    document.getElementById("main").style.marginLeft = "50px";
 }
