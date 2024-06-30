@@ -19,8 +19,14 @@ document.addEventListener("DOMContentLoaded", function () {
   const passwordInput = document.getElementById("password");
   const passwordCheckInput = document.getElementById("passwordCheck");
   const checkNicknameBtn = document.getElementById("checkNicknameBtn");
+  const phoneNumberInput = document.getElementById("phoneNumber");
+  const carrierInput = document.getElementById("carrierDomain");
+  const checkAuthenticationBtn = document.getElementById("checkAuthentication");
+  const birthDateInput = document.getElementById("birthDate");
+  const sexDomainInput = document.getElementById("sexDomain");
 
   let isNicknameChecked = false;
+  let isPhoneAuthenticated = false;
 
   // 닉네임 입력 시 중복 확인 버튼 활성화
   nicknameInput.addEventListener("input", function () {
@@ -35,6 +41,15 @@ document.addEventListener("DOMContentLoaded", function () {
     // 지금은 예시로 항상 사용 가능하다고 가정합니다.
     alert("사용할 수 있는 닉네임입니다.");
     isNicknameChecked = true;
+  });
+
+  // 인증 버튼 클릭 이벤트
+  checkAuthenticationBtn.addEventListener("click", function (event) {
+    event.preventDefault();
+    // 여기에 실제 인증 로직을 구현해야 합니다.
+    // 지금은 예시로 항상 인증 성공으로 가정합니다.
+    alert("인증되었습니다.");
+    isPhoneAuthenticated = true;
   });
 
   // 비밀번호 보이기/숨기기 토글
@@ -69,7 +84,10 @@ document.addEventListener("DOMContentLoaded", function () {
       !emailInput.value ||
       !nicknameInput.value ||
       !passwordInput.value ||
-      !passwordCheckInput.value
+      !passwordCheckInput.value ||
+      !phoneNumberInput.value ||
+      !birthDateInput.value ||
+      !sexDomainInput.value
     ) {
       alert("모든 필드를 채워주세요.");
       return;
@@ -78,6 +96,12 @@ document.addEventListener("DOMContentLoaded", function () {
     // 닉네임 중복 확인이 완료되었는지 확인
     if (!isNicknameChecked) {
       alert("닉네임 중복 확인을 해주세요.");
+      return;
+    }
+
+    // 전화번호 인증이 완료되었는지 확인
+    if (!isPhoneAuthenticated) {
+      alert("전화번호 인증을 완료해주세요.");
       return;
     }
 
