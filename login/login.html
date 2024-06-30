@@ -5,7 +5,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>login</title>
         <link rel="stylesheet" href="./style_login.css" />
-        <link rel="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+        <script
+            src="https://kit.fontawesome.com/9125fcc41c.js"
+            crossorigin="anonymous">
+        </script>
     </head>
     <body style="background: linear-gradient(to top right, #B8FDC8, #BFD6FF, white)">
         <header>
@@ -15,29 +18,35 @@
             style="margin-top: 25px"
             />
         </header>
-        <div class="login-wrapper">
-            <h2>환영합니다.</h2>
-        </div>
-        <div>
-            <input type="email" name="email" placeholder="이메일을 입력하세요" required="required">
-        </div>
-        <div class="input_password">
-            <input type="password" id="password" class="form-input" placeholder="비밀번호를 입력하세요" maxlength="20">
-        </div>
-        <div class="page_center">
-            <div class="remember-container">
-                <input type="checkbox" id="remember">
-                <label for="remember">로그인 유지</label>
+        <form id="loginForm" onsubmit="return validateForm()">
+            <div class="login-wrapper">
+                <h2>환영합니다.</h2>
             </div>
-            <button class="findemail" type="button" onClick="location.href='../login/find_email-1.html'">이메일 찾기</button>
-            <span>|</span>
-            <button class="findpassword" type="button" onClick="location.href='../login/find_password-1.html'">비밀번호 찾기</button>
-        </div>
-        <div class="emaillogin">
-            <button class="mainlogin" type="button" onClick="location.href='홈.html 넣기'">이메일로 로그인</button>
-        </div>
+            <div>
+                <input type="email" id="email" name="email" placeholder="이메일을 입력하세요" required>
+            </div>
+            <div class="input_password">
+                <input type="password" id="password" name="password" class="form-input" placeholder="비밀번호를 입력하세요" maxlength="20" required>
+                <button id="showPassword" type="button">
+                    <i class="fa-solid fa-eye"></i>
+                </button>
+            </div>
+            <div class="page_center">
+                <div class="remember-container">
+                    <input type="checkbox" id="remember">
+                    <label for="remember">로그인 유지</label>
+                </div>
+                <button class="findemail" type="button" onClick="location.href='../login/find_email-1.html'">이메일 찾기</button>
+                <span>|</span>
+                <button class="findpassword" type="button" onClick="location.href='../login/find_password-1.html'">비밀번호 찾기</button>
+            </div>
+            <div class="emaillogin">
+                <button class="mainlogin" type="submit">이메일로 로그인</button>
+            </div>
+        </form>
         <div class="tosignup">
             <button class="to_signup" type="button" onClick="location.href='../sign_up/sign_up_1.html'">회원가입</button>
         </div>
+        <script src="script_login.js"></script>
     </body>
 </html>
