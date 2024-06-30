@@ -91,6 +91,7 @@ body {
   margin-right: 0px;
   position: fixed;
   bottom: 10px;
+  cursor: pointer;
 }
 
 #main {
