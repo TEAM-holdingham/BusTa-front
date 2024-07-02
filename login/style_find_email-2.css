@@ -29,10 +29,14 @@ body{
     margin-bottom: 10px;
 }
 
+.email{
+    font-size: 22px;
+    color: #000;
+}
+
 .last{
     font-size: 22px;
     color: #4E4E4E;
-    margin-left: 250px;
 }
 
 .login{

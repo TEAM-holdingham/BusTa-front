@@ -1,12 +1,11 @@
-*{
+* {
     padding: 0;
     margin: 0;
     border: none;
     font-family: 'Helvetica';
 }
 
-
-body{
+body {
     width: 100vh;
     height: 100vh;
     margin: auto;
@@ -14,10 +13,10 @@ body{
     align-items: center;
     flex-direction: column;
     text-align: center;
-    margin-top: 120px; 
-} /*로고 위치*/
+    margin-top: 120px; /* 로고 위치 */
+}
 
-.login-wrapper > h2{
+.login-wrapper > h2 {
     font-size: 30px;
     color: #fff;
     margin-top: 90px;
@@ -31,7 +30,7 @@ input[type="text"] {
     width: 450px;
     height: 33px;
     margin-bottom: 10px;
-    padding: 10px 10px 10px 50px; 
+    padding: 10px 10px 10px 50px;
     font-size: 13px;
     border: 1px solid #fff;
     border-radius: 30px;
@@ -40,18 +39,17 @@ input[type="text"] {
 }
 
 input[type="email"] {
-    background-image : url(../assets/login.png);
-    background-repeat : no-repeat;
+    background-image: url(../assets/login.png);
+    background-repeat: no-repeat;
     background-position: 10px;
-    background-size: 30px;
+    background-size: 25px;
 }
 
-input[type="password"], input[type="text"]  {
-    background-image : url(../assets/password.png);
-    width: 100%;
-    background-repeat : no-repeat;
+input[type="password"] {
+    background-image: url(../assets/password.png);
+    background-repeat: no-repeat;
     background-position: 10px;
-    background-size: 30px;
+    background-size: 25px;
 }
 
 .input_password {
@@ -69,19 +67,13 @@ input[type="password"], input[type="text"]  {
     cursor: pointer;
 }
 
-input::placeholder{
+input::placeholder {
     font-size: 15px;
     color: #B6BCBE;
 }
 
 
-input:-webkit-autofill { 
-    -webkit-box-shadow: 0 0 0 30px #fff inset; 
-    -webkit-text-fill-color: #000; 
-}
-
-
-button.mainlogin{
+button.mainlogin {
     width: 450px;
     height: 35px;
     margin-top: 25px;
@@ -92,7 +84,7 @@ button.mainlogin{
     cursor: pointer;
 }
 
-button.to_signup{
+button.to_signup {
     width: 450px;
     height: 35px;
     margin-top: 5px;
@@ -103,9 +95,15 @@ button.to_signup{
     cursor: pointer;
 }
 
-.page_center{
+.page_center {
     display: flex;
     align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.remember-container {
+    margin-right: 20px;
 }
 
 label[for="remember"] {
@@ -113,27 +111,33 @@ label[for="remember"] {
     color: #fff;
 }
 
-button.findemail{
-    margin-left: 150px;
-    background-color: transparent;
+.find-container {
+    display: flex;
+    align-items: center;
+}
+
+button.findemail {
     margin-right: 5px;
+    margin-left: 110px;
+    background-color: transparent;
     color: #5F5F60;
     cursor: pointer;
 }
 
-span{
+span {
     font-size: 13px;
     color: #5F5F60;
 }
 
-button.findpassword{
+button.findpassword {
     margin-left: 5px;
+    margin-right: 10px;
     background-color: transparent;
     color: #5F5F60;
     cursor: pointer;
 }
 
-input[type="checkbox"]{
+input[type="checkbox"] {
     margin-left: 10px;
     cursor: pointer;
 }
