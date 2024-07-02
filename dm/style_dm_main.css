@@ -1,0 +1,271 @@
+body {
+    font-family: "KimjungchulGothic-Bold", Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.sidenav {
+    height: 100vh;
+    width: 250px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #E4E8F0;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+  
+  .sidenav a {
+    padding: 4px 8px 4px 50px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #363636;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .sidenav a:hover {
+    color: #A9CFE2;
+  }
+  
+  .sidenav .home-link {
+    margin-top: 10px;
+  }
+  
+  .sidenav .record-link {
+    margin-top: 10px;
+  }
+  
+  .sidenav .mypage-link {
+    margin-top: 50px;
+  }
+  
+  .sidenav .friend-link {
+    margin-top: 10px;
+  }
+  
+  .sidenav .setting-link svg {
+    width: 20px;
+    height: 20px;
+    margin-top: 50px;
+  }
+  
+  .sidenav .dm-link svg {
+    width: 20px;
+    height: 20px;
+    margin-top: 50px;
+  }
+  
+  .sidenav .alarm-link svg {
+    width: 20px;
+    height: 20px;
+    margin-top: 10px;
+  }
+  
+  .sidenav .notify-link svg {
+    width: 20px;
+    height: 20px;
+    margin-top: 10px;
+  }
+  
+  .sidenav .profile-link svg {
+    width: 50px;
+    height: 50px;
+    margin-top: 50px;
+  }
+  
+  .sidenav .logout-link  {
+    margin-top: 5px;
+    font-size: 15px;
+    margin-bottom: 200px;
+  }
+  
+  .sidenav .closebtn {
+    position: absolute;
+    top: 700px;
+    right: 25px;
+    margin-left: 50px;
+  }
+  
+  .arrow {
+    margin-right: 0px;
+    position: fixed;
+    bottom: 10px;
+    cursor: pointer;
+  }
+  
+  #main {
+    transition: margin-left .5s;
+    padding: 16px;
+  }
+  
+  @media screen and (max-height: 450px) {
+    .sidenav { padding-top: 1500px; }
+    .sidenav a { font-size: 18px; }
+  }
+ 
+
+/* 여기서부터 dm_style */
+.chat-container {
+    display: flex;
+    height: 100vh;
+    margin-left: 250px; /* 사이드바 너비만큼 여백 추가 */
+    width: calc(100% - 250px); /* 전체 너비에서 사이드바 너비를 뺀 만큼 설정 */
+    transition: 0.5s;
+}
+
+.chat-list {
+    flex: 1;
+    border-right: 1px solid #ccc;
+    overflow-y: scroll;
+    background-color: #fff;
+}
+
+.chat-list h2 {
+    padding: 20px;
+    margin: 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.chat-list-item, .userprofile{
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+}
+
+.userprofile > div:first-child {
+  display: flex;
+  align-items: center;
+}
+
+.userprofile img {
+  margin-right: 20px;
+}
+
+.my_info{
+  background-color: #EEEEEE;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  font-size: 13px;
+  margin-top: 15px;
+  text-align: center;
+  padding: 5px;
+}
+
+.gotomypage {
+  font-size: 10px;
+  border: none;
+  background-color: transparent;
+  margin-top: 5px;
+  color: #666;
+}
+
+.chat-list-item:hover, .chat-list-item.active {
+    background-color: #EEEEEE;
+}
+
+.chat-list-item img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.chat-main {
+    flex: 2.5;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-main h2 {
+    padding: 20px;
+    margin: 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.chat-messages {
+    flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: scroll;
+    background-color: #fff;
+}
+
+.message {
+    max-width: 50%;
+    padding: 10px 15px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+.message.sent {
+    background-color: #FFFFFF;
+    color: #000;
+    align-self: flex-end;
+    margin-left: auto;
+    border: 1px solid #566B93;
+}
+
+.message.received {
+    background-color: #92B6FA;
+    color: #fff;
+    align-self: flex-start;
+    border: 1px solid #566B93;
+}
+
+.input-container {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: calc(75% - 250px);
+    background-color: #F1F1F1;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    transition: 0.5s;
+}
+
+.input-container input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    margin-right: 10px;
+}
+
+
+.input-container.sidebar-closed {
+    width: calc(75% - 50px);
+}
+
+.chat-info h3 {
+    margin: 0 0 5px 0;
+
+}
+
+.chat-info p {
+    margin: 0;
+    font-size: 14px;
+    color: #000;
+}
+
+.chat-info{
+  margin-top: 15px;
+}
+
+.sendButton{
+  background-color: transparent;
+  border: transparent;
+}
+
+.sendButton:hover{
+  background-color: #92B6FA;
+  border-radius: 20px;
+}
