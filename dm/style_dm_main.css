@@ -110,6 +110,7 @@ body {
  
 
 /* 여기서부터 dm_style */
+
 .chat-container {
     display: flex;
     height: 100vh;
@@ -223,7 +224,7 @@ body {
     position: fixed;
     bottom: 0;
     right: 0;
-    width: calc(75% - 250px);
+    width: calc(100% - 250px);
     background-color: #F1F1F1;
     padding: 10px;
     border-top: 1px solid #ccc;
@@ -231,6 +232,8 @@ body {
     align-items: center;
     transition: 0.5s;
 }
+
+
 
 .input-container input[type="text"] {
     flex: 1;

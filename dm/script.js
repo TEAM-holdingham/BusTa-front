@@ -29,30 +29,25 @@ function closeNav() {
 
 //여기서부터 dm_script
 
- // 가짜 데이터 (실제 데이터로 대체되어야 함)
-const messages = {
-    1: [
-        { type: 'sent', content: '안녕하세요!' },
-        { type: 'received', content: '민공지능 최고~~><' }
-    ],
-    2: [
-        { type: 'received', content: '인증번호 확인을 확인해' },
-        { type: 'sent', content: '인증번호 확인을 확인하는 것이야' },
-        { type: 'sent', content: '인증번호 확인을 확인해서 확인하여 확인해보거라..확인혀' },
-        { type: 'received', content: '인증번호 확인이 참말인가...? 대답.' },
-        { type: 'sent', content: '인증번호 확인!!!'},
-        { type: 'received', content: '인증번호 확인~~' }
-                
-    ],
-    3: [
-        { type: 'sent', content: '오늘 뭐해요?' },
-        { type: 'received', content: '우린 운명의 데스티니야 0.<' }
-    ],
+// WebSocket 연결 설정
+const socket = new WebSocket('ws://yourserver.com/socket');
 
-    4: [
-        { type: 'sent', content: '새벽은 자라고 있는 것이 아니라 피그마하라고 있는 것이야..'}
-    ]
-    };
+socket.onopen = function(event) {
+    console.log('WebSocket connection established');
+};
+
+socket.onmessage = function(event) {
+    const message = JSON.parse(event.data);
+    receiveMessage(message);
+};
+
+socket.onclose = function(event) {
+    console.log('WebSocket connection closed');
+};
+
+socket.onerror = function(error) {
+    console.error('WebSocket error:', error);
+};
 
 // 채팅 메시지를 보여주는 함수
 function showChat(chatId) {
@@ -72,6 +67,26 @@ function showChat(chatId) {
     chatListItems[chatId - 1].classList.add('active');
 }
 
+// 메시지 수신 함수
+function receiveMessage(message) {
+    const activeChatId = document.querySelector('.chat-list-item.active').innerText.trim();
+    const chatId = parseInt(activeChatId.charAt(activeChatId.length - 1));
+    if (message.chatId === chatId) {
+        const chatMessages = document.getElementById('chatMessages');
+        const messageElement = document.createElement('div');
+        messageElement.classList.add('message', 'received');
+        messageElement.textContent = message.content;
+        chatMessages.appendChild(messageElement);
+    }
+
+    // 메시지 데이터를 업데이트
+    if (messages[chatId]) {
+        messages[chatId].push({ type: 'received', content: message.content });
+    } else {
+        messages[chatId] = [{ type: 'received', content: message.content }];
+    }
+}
+
 
 // 메시지 전송 함수
 function sendMessage() {
@@ -83,6 +98,17 @@ function sendMessage() {
     }
 
     const activeChatId = document.querySelector('.chat-list-item.active').innerText.trim();
+    const chatId = parseInt(activeChatId.charAt(activeChatId.length - 1));
+    
+    // 서버로 메시지 전송
+    const messageData = {
+        chatId: chatId,
+        content: message,
+        type: 'sent'
+    };
+    socket.send(JSON.stringify(messageData));
+
+    // UI 업데이트
     const chatMessages = document.getElementById('chatMessages');
     const messageElement = document.createElement('div');
     messageElement.classList.add('message', 'sent');
@@ -92,15 +118,10 @@ function sendMessage() {
     // 메시지 전송 후 입력창 초기화
     messageInput.value = '';
 
-    // 실제로는 여기서 서버에 메시지를 전송하는 코드를 추가해야 함
-    // 서버로 메시지를 전송하고 응답을 받아와야 함 (실제 채팅 애플리케이션에서는)
-
-    // 가짜 데이터 업데이트 (실제로는 서버 응답을 기다려야 함)
-    const chatId = parseInt(activeChatId.charAt(activeChatId.length - 1)); // '친구X'에서 X를 추출
-    messages[chatId].push({ type: 'received', content: '응답 메시지 예시' });
-
-    // 다시 채팅창 업데이트
-    showChat(chatId);
+    // 메시지 데이터를 업데이트
+    if (messages[chatId]) {
+        messages[chatId].push({ type: 'sent', content: message });
+    } else {
+        messages[chatId] = [{ type: 'sent', content: message }];
+    }
 }
-
-
