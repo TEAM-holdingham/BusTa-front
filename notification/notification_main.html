@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>dm_main</title>
-    <link rel="stylesheet" href="style_dm_main.css">
+    <title>notification_main</title>
+    <link rel="stylesheet" href="style_notification_main.css">
 </head>
 <body>
 
@@ -105,48 +105,16 @@
         </svg>
         
     </span>
-        
-    <div class="chat-container">
-        <div class="chat-list">
-            <h2>친구 목록</h2>
-            <div class="userprofile">
-                <div>
-                    <img src="../assets/최강예현.png" alt="MainProfile">
-                    <div class="chat-info">
-                        <h3>허다닥</h3>
-                        <p>heodadadac@gmail.com</p>
-                        <button class="gotomypage" type="button" onClick="location.href='../my_page/my_page.html'">마이페이지>></button>
-                    </div>
-                </div>
-                <div class="my_info">"아무도 내 질주를 막지 마세요. 그 누구도"</div>
-            </div>
-            <div class="chat-list-item active" onclick="showChat(1)">
-                최강예현
-            </div>
-            <div class="chat-list-item" onclick="showChat(2)">
-                나는채연아가야
-            </div>
-            <div class="chat-list-item" onclick="showChat(3)">
-                지존예진-_-^
-            </div>
-            <div class="chat-list-item" onclick="showChat(4)">
-                승연티비
-            </div>
+    
+    <!-- 알림 page 내용이 들어갈 부분 -->
+    <div class="notification_main">
+        <div class="mainTitle">
+            <img src="../assets/notification.png" alt="titleimg">
+            <h2>알림</h2>
         </div>
 
-        <div class="chat-main">
-            <h2 class="chat-title">채팅</h2>
-            <div class="chat-messages" id="chatMessages">
-                <!-- 채팅 메시지들이 여기에 동적으로 들어갈 부분 -->
-            </div>
-        </div>
     </div>
 
-    <div class="input-container">
-        <input type="text" id="messageInput" placeholder="메세지를 입력하세요..">
-        <button class="sendButton" onclick="sendMessage()"><img src="../assets/sendButton.png"></button>
-    </div>
-
-    <script src="script_dm_main.js"></script>
+    <script src="script_notification_main.js"></script>
 </body>
 </html>
