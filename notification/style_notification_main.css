@@ -1,6 +1,6 @@
 body {
     font-family: "KimjungchulGothic-Bold", Arial, sans-serif;
-    background-color: #f2f2f2;
+    background-color: #fff;
     margin: 0;
     padding: 0;
     display: flex;
@@ -112,11 +112,88 @@ body {
 /* 여기서부터 notification_style */
 
 .notification_main {
-    display: flex;
-    height: 100vh;
-    margin-left: 250px; /* 사이드바 너비만큼 여백 추가 */
-    width: calc(100% - 250px); /* 전체 너비에서 사이드바 너비를 뺀 만큼 설정 */
-    transition: 0.5s;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  height: 100vh;
+  margin-left: 250px; /* 사이드바 너비만큼 여백 추가 */
+  width: calc(100% - 250px); /* 전체 너비에서 사이드바 너비를 뺀 만큼 설정 */
+  transition: 0.5s;
+  box-sizing: border-box;
 }
 
-.mainTitle
+.mainTitle {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.mainTitle img {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.mainTitle h2 {
+  font-size: 24px;
+  margin: 0;
+}
+
+
+.notification-scroll {
+  overflow-y: auto;
+  flex-grow: 1;
+}
+
+.notification-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.notification-date-box {
+  background-color: transparent;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.notification-date {
+  font-size: 14px;
+  color: #91B6FA;
+  margin-bottom: 10px;
+}
+
+.notification-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  padding: 10px;
+  background-color: #EEF0F4;
+  border-radius: 5px;
+}
+
+.notification-time {
+  font-size: 12px;
+  color: #888;
+  margin-right: 10px;
+  white-space: nowrap;
+}
+
+.notification-content {
+  flex-grow: 1;
+}
+
+.accept-btn, .reject-btn {
+  padding: 5px 10px;
+  margin-left: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.accept-btn, .reject-btn {
+  background-color: #91B6FA;
+  color: #000;
+}
+
