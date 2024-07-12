@@ -109,9 +109,8 @@ body {
   }
  
 
-/* 여기서부터 notification_style */
-
-.notification_main {
+/* 여기서부터 announcement_main_style */
+.announcement_main {
   display: flex;
   flex-direction: column;
   padding: 20px;
@@ -139,61 +138,30 @@ body {
   margin: 0;
 }
 
-
-.notification-scroll {
-  overflow-y: auto;
-  flex-grow: 1;
-}
-
-.notification-list {
-  display: flex;
-  flex-direction: column;
-}
-
-.notification-date-box {
+.announcements {
   background-color: transparent;
-  border-radius: 8px;
-  padding: 10px;
-  margin-bottom: 15px;
 }
 
-.notification-date {
-  font-size: 14px;
-  color: #91B6FA;
-  margin-bottom: 10px;
-}
-
-.notification-item {
-  display: flex;
-  align-items: center;
+.announcement {
   margin-bottom: 5px;
   padding: 10px;
   background-color: #EEF0F4;
   border-radius: 5px;
-}
-
-.notification-time {
-  font-size: 12px;
-  color: #888;
-  margin-right: 10px;
-  white-space: nowrap;
-}
-
-.notification-content {
-  flex-grow: 1;
-}
-
-.accept-btn, .reject-btn {
-  padding: 5px 10px;
-  margin-left: 10px;
-  border: none;
-  border-radius: 5px;
   cursor: pointer;
-  white-space: nowrap;
+  text-decoration: none;
+  color: inherit;
+  display: block;
 }
 
-.accept-btn, .reject-btn {
-  background-color: #91B6FA;
-  color: #000;
+.announcement:hover {
+  background-color: #f0f0f0;
 }
 
+.announcement p {
+  margin: 0;
+}
+
+.date {
+  font-size: 0.8em;
+  color: #000000;
+}
