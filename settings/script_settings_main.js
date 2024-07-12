@@ -15,16 +15,14 @@ function toggleNav() {
 
 function openNav() {
     document.getElementById("mySidenav").style.width = "250px";
-    document.querySelector(".chat-container").style.marginLeft = "250px";
-    document.querySelector(".chat-container").style.width = "calc(100% - 250px)";
-    document.querySelector(".input-container").style.width = "calc(75% - 250px)";
+    document.querySelector(".settings_main").style.marginLeft = "250px";
+    document.querySelector(".settings_main").style.width = "calc(100% - 250px)";
 }
 
 function closeNav() {
     document.getElementById("mySidenav").style.width = "0px";
-    document.querySelector(".chat-container").style.marginLeft = "50px";
-    document.querySelector(".chat-container").style.width = "calc(100% - 0px)";
-    document.querySelector(".input-container").style.width = "calc(75% - 50px)";
+    document.querySelector(".settings_main").style.marginLeft = "50px";
+    document.querySelector(".settings_main").style.width = "calc(100% - 0px)";
 }
 
 //여기서부터 settings_main_script
