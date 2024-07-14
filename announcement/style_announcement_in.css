@@ -174,3 +174,20 @@ h2 {
   padding: 30px;
   height: 80vh;
 }
+
+.goback{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  left: 1345px;
+  top: 135px;
+}
+
+.goback:hover{
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.goback img {
+  width: 20px;
+  height: 20px;
+}

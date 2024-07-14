@@ -121,7 +121,7 @@
                 </div>
                 <div class="my_info">"아무도 내 질주를 막지 마세요. 그 누구도"</div>
             </div>
-            <div class="chat-list-item active" onclick="showChat(1)">
+            <div class="chat-list-item" onclick="showChat(1)">
                 최강예현
             </div>
             <div class="chat-list-item" onclick="showChat(2)">
@@ -136,16 +136,20 @@
         </div>
 
         <div class="chat-main">
-            <h2 class="chat-title">채팅</h2>
-            <div class="chat-messages" id="chatMessages">
-                <!-- 채팅 메시지들이 여기에 동적으로 들어갈 부분 -->
+            <div id="chat-content" style="display: none;">
+                <div class="chatup">
+                    <h2 class="chat-title"><img src="../assets/채팅창.png" id="chatimg">채팅</h2>
+                </div>
+                <div class="chat-messages" id="chatMessages">
+                    <!-- 채팅 메시지들이 여기에 동적으로 들어갈 부분 -->
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="input-container">
+    <div class="input-container" style="display: none;">
         <input type="text" id="messageInput" placeholder="메세지를 입력하세요..">
-        <button class="sendButton" onclick="sendMessage()"><img src="../assets/sendButton.png"></button>
+        <button class="sendButton" onclick="sendMessage()"><img src="../assets/sendButton.png" id="sendButton"></button>
     </div>
 
     <script src="script_dm_main.js"></script>
