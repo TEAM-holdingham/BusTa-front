@@ -130,6 +130,7 @@ body {
     padding: 20px;
     margin: 0;
     border-bottom: 1px solid #ccc;
+    color: #7F7F7F;
 }
 
 .chat-list-item, .userprofile{
@@ -138,6 +139,10 @@ body {
     padding: 15px;
     border-bottom: 1px solid #eee;
     cursor: pointer;
+}
+
+.chat-list-item.active {
+  background-color: #F1F1F1;
 }
 
 .userprofile > div:first-child {
@@ -167,7 +172,7 @@ body {
   color: #666;
 }
 
-.chat-list-item:hover, .chat-list-item.active {
+.chat-list-item:hover{
     background-color: #EEEEEE;
 }
 
@@ -179,15 +184,18 @@ body {
 }
 
 .chat-main {
-    flex: 2.5;
-    display: flex;
-    flex-direction: column;
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #F1F1F1;
 }
 
 .chat-main h2 {
     padding: 20px;
     margin: 0;
     border-bottom: 1px solid #ccc;
+    color: #7F7F7F;
 }
 
 .chat-messages {
@@ -195,7 +203,10 @@ body {
     padding: 20px;
     box-sizing: border-box;
     overflow-y: scroll;
-    background-color: #fff;
+    background-color: #F1F1F1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
 }
 
 .message {
@@ -224,7 +235,7 @@ body {
     position: fixed;
     bottom: 0;
     right: 0;
-    width: calc(100% - 250px);
+    width: calc(100% - 250px);  
     background-color: #F1F1F1;
     padding: 10px;
     border-top: 1px solid #ccc;
@@ -234,18 +245,17 @@ body {
 }
 
 
-
 .input-container input[type="text"] {
     flex: 1;
-    padding: 10px;
+    padding: 20px;
     border: 1px solid #ccc;
     border-radius: 20px;
     margin-right: 10px;
 }
 
 
-.input-container.sidebar-closed {
-    width: calc(75% - 50px);
+.input-container, .sidebar-closed {
+    width: calc(75% - 150px);
 }
 
 .chat-info h3 {
@@ -269,6 +279,16 @@ body {
 }
 
 .sendButton:hover{
-  background-color: #92B6FA;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 그림자 효과 추가 */
   border-radius: 20px;
+}
+
+#chatimg{
+  width: 22px;
+  margin-right: 10px;
+}
+
+#sendButton{
+  width: 25px;
+  cursor: pointer;
 }

@@ -73,16 +73,45 @@ function renderNotifications() {
     });
 }
 
-// 페이지 로드 시 알림 목록 렌더링
-window.addEventListener('load', renderNotifications);
-
-// 수락 및 거절 버튼 이벤트 리스너 (예시)
-document.querySelector('.notification-list').addEventListener('click', function(e) {
-    if (e.target.classList.contains('accept-btn')) {
-        console.log('친구 신청 수락');
-        // 수락 로직 구현
-    } else if (e.target.classList.contains('reject-btn')) {
-        console.log('친구 신청 거절');
-        // 거절 로직 구현
+// 수락 및 거절 버튼 이벤트 처리
+document.addEventListener('DOMContentLoaded', function() {
+    // 수락 버튼 클릭 시 이벤트 리스너
+    document.addEventListener('click', function(e) {
+      if (e.target.classList.contains('accept-btn')) {
+        const notificationTime = e.target.parentElement.querySelector('.notification-time').textContent;
+        showModal(`친구 요청을 수락하시겠습니까?`, () => {
+          // 여기에 실제 수락 로직을 구현
+          // 예를 들어, AJAX 요청 등을 사용하여 서버에 신청을 수락하는 동작을 수행할 수 있음
+        });
+      } else if (e.target.classList.contains('reject-btn')) {
+        const notificationTime = e.target.parentElement.querySelector('.notification-time').textContent;
+        showModal(`친구 요청을 거절하시겠습니까?`, () => {
+          // 여기에 실제 거절 로직을 구현
+          // 예를 들어, AJAX 요청 등을 사용하여 서버에 신청을 거절하는 동작을 수행할 수 있음
+        });
+      }
+    });
+  
+    // 모달 창 관련 함수
+    function showModal(text, confirmCallback) {
+      const modal = document.getElementById('modal');
+      const modalText = document.getElementById('modalText');
+      const confirmBtn = document.getElementById('confirmBtn');
+      const cancelBtn = document.getElementById('cancelBtn');
+  
+      modalText.textContent = text;
+      modal.style.display = 'block';
+  
+      confirmBtn.onclick = function() {
+        confirmCallback();
+        modal.style.display = 'none';
+      };
+  
+      cancelBtn.onclick = function() {
+        modal.style.display = 'none';
+      };
     }
-});
+  });
+  
+  // 초기 알림 목록 렌더링
+  renderNotifications();

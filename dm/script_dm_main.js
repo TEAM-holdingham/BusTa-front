@@ -17,14 +17,14 @@ function openNav() {
     document.getElementById("mySidenav").style.width = "250px";
     document.querySelector(".chat-container").style.marginLeft = "250px";
     document.querySelector(".chat-container").style.width = "calc(100% - 250px)";
-    document.querySelector(".input-container").style.width = "calc(75% - 250px)";
+    document.querySelector(".input-container").style.width = "calc(75% - 305px)";
 }
 
 function closeNav() {
     document.getElementById("mySidenav").style.width = "0px";
     document.querySelector(".chat-container").style.marginLeft = "50px";
     document.querySelector(".chat-container").style.width = "calc(100% - 0px)";
-    document.querySelector(".input-container").style.width = "calc(75% - 50px)";
+    document.querySelector(".input-container").style.width = "calc(75% - 170px)";
 }
 
 //여기서부터 dm_script
@@ -56,7 +56,14 @@ const messages = {
 
 // 채팅 메시지를 보여주는 함수
 function showChat(chatId) {
+    const chatMain = document.querySelector('.chat-main');
+    const chatContent = document.getElementById('chat-content');
     const chatMessages = document.getElementById('chatMessages');
+    const inputContainer = document.querySelector('.input-container');
+    
+    chatMain.style.backgroundColor = "#F1F1F1";
+    chatContent.style.display = 'block';
+    inputContainer.style.display = 'flex';
     chatMessages.innerHTML = '';
 
     messages[chatId].forEach(message => {
@@ -70,6 +77,10 @@ function showChat(chatId) {
     const chatListItems = document.querySelectorAll('.chat-list-item');
     chatListItems.forEach(item => item.classList.remove('active'));
     chatListItems[chatId - 1].classList.add('active');
+
+    // 채팅 메시지 영역 스크롤을 맨 아래로 이동
+    const chatMessagesContainer = document.querySelector('.chat-messages-container');
+    chatMessagesContainer.scrollTop = chatMessagesContainer.scrollHeight;   
 }
 
 
