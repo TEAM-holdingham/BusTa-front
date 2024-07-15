@@ -187,19 +187,24 @@ body {
 
 .settings-list-item {
   display: flex;
-  flex-direction: column;
-  padding: 15px;
+  flex-direction: row;
+  padding: 10px;
   border-bottom: 1px solid #eee;
   cursor: pointer;
-}
-
-.settings-list-item:hover{
-  background-color: #EEEEEE;
+  font-size: 16px;
 }
 
 /* .settings-list-item.active {
   background-color: #F1F1F1;
 } */
+
+.settings-list-item:hover{
+  background-color: #EEEEEE;
+}
+
+.listname{
+  padding: 10px;
+}
 
 /* 설정 세부 공통 내용 */
 .settings-main {
@@ -211,10 +216,8 @@ body {
 }
 
 #settings_assets{
-  width: 18px;
-  height: 18px;
-  margin-top: 2px;
-  margin-right: 5px;
+  width: 20px;
+  margin: 0 5px;
 }
 
 #explain{
