@@ -44,31 +44,47 @@ body {
   margin-top: 10px;
 }
 
-.sidenav .setting-link svg {
+.sidenav .setting-link img {
   width: 20px;
   height: 20px;
   margin-top: 50px;
+  transition: all 0.3s ease;
 }
 
-.sidenav .dm-link svg {
+.sidenav .dm-link img {
   width: 20px;
   height: 20px;
   margin-top: 50px;
+  transition: all 0.3s ease;
 }
 
-.sidenav .alarm-link svg {
+.sidenav .dm-link img:hover {
+  content: url('h-dm.svg');
+}
+
+.sidenav .alarm-link img {
   width: 20px;
   height: 20px;
   margin-top: 10px;
+  transition: all 0.3s ease;
 }
 
-.sidenav .notify-link svg {
+.sidenav .alarm-link img:hover {
+  content: url('h-alarm.svg');
+}
+
+.sidenav .notify-link img {
   width: 20px;
   height: 20px;
   margin-top: 10px;
+  transition: all 0.3s ease;
 }
 
-.sidenav .profile-link svg {
+.sidenav .notify-link img:hover {
+  content: url('h-notify.svg');
+}
+
+.sidenav .profile-link img {
   width: 50px;
   height: 50px;
   margin-top: 50px;
@@ -84,7 +100,14 @@ body {
   position: absolute;
   top: 700px;
   right: 25px;
+  display: flex;  /* Use flexbox to align items */
+  align-items: center;  /* Center items vertically */
   margin-left: 50px;
+}
+
+/* 이미지 설정 */
+.sidenav .closebtn img {
+  margin-right: 10px; /* 텍스트와 이미지 사이의 간격 */
 }
 
 .arrow {
