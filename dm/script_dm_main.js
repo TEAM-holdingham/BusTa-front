@@ -52,7 +52,8 @@ const messages = {
     4: [
         { type: 'sent', content: '새벽은 자라고 있는 것이 아니라 피그마하라고 있는 것이야..'}
     ]
-    };
+};
+
 
 // 채팅 메시지를 보여주는 함수
 function showChat(chatId) {
@@ -60,6 +61,7 @@ function showChat(chatId) {
     const chatContent = document.getElementById('chat-content');
     const chatMessages = document.getElementById('chatMessages');
     const inputContainer = document.querySelector('.input-container');
+    const chatPreviewArea = document.getElementById('chatPreviewArea');
     
     chatMain.style.backgroundColor = "#F1F1F1";
     chatContent.style.display = 'block';
@@ -77,6 +79,7 @@ function showChat(chatId) {
     const chatListItems = document.querySelectorAll('.chat-list-item');
     chatListItems.forEach(item => item.classList.remove('active'));
     chatListItems[chatId - 1].classList.add('active');
+
 
     // 채팅 메시지 영역 스크롤을 맨 아래로 이동
     const chatMessagesContainer = document.querySelector('.chat-messages-container');

@@ -113,35 +113,18 @@ body {
 .settings-container {
   display: flex;
   height: 100vh;
-  margin-left: 250px; /* 사이드바 너비만큼 여백 추가 */
-  width: calc(100% - 250px); /* 전체 너비에서 사이드바 너비를 뺀 만큼 설정 */
+  margin-left: 250px;
+  width: calc(100% - 250px);
   transition: 0.5s;
 }
 
-.settings-list {
-  flex: 1;
-  border-right: 1px solid #ccc;
-  overflow-y: scroll;
-  background-color: #fff;
-}
-
-.settings-list h2 {
-  padding: 20px;
-  margin: 0;
-  border-bottom: 1px solid #ccc;
-}
-
-.settings-list-item, .userprofile{
+/* main_프로필 */
+.userprofile {
   display: flex;
   flex-direction: column;
   padding: 15px;
   border-bottom: 1px solid #eee;
   cursor: pointer;
-}
-
-.settings-list-item{
-  font-size: 18px;
-  color: #000;
 }
 
 .userprofile > div:first-child {
@@ -151,6 +134,21 @@ body {
 
 .userprofile img {
   margin-right: 20px;
+}
+
+.chat-info h3 {
+  margin: 0 0 5px 0;
+}
+
+.chat-info p {
+  margin: 0;
+  font-size: 14px;
+  color: #000;
+}
+
+.chat-info{
+  margin-top: 15px;
+  flex: 1;
 }
 
 .my_info{
@@ -169,22 +167,185 @@ body {
   background-color: transparent;
   margin-top: 5px;
   color: #666;
+  float: right;
+}
+
+/* 설정 list */
+.settings-list {
+  flex: 1;
+  background-color: #fff;
+  overflow-y: scroll;
+  border-right: 1px solid #ccc;
+}
+
+.settings-list h2 {
+  padding: 20px;
+  margin: 0;
+  border-bottom: 1px solid #ccc;
+  color: #7F7F7F;
+}
+
+.settings-list-item {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
 }
 
 .settings-list-item:hover{
   background-color: #EEEEEE;
 }
 
-#settings_assets{
-  width: 18px;
-  height: 18px;
-  margin-right: 5px;
-}
+/* .settings-list-item.active {
+  background-color: #F1F1F1;
+} */
 
+/* 설정 세부 공통 내용 */
 .settings-main {
   flex: 2;
   display: flex;
-  flex-direction: column;
-  height: 100vh;
   background-color: #F1F1F1;
+  height: 100vh;
+  flex-direction: column;
+}
+
+#settings_assets{
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  margin-right: 5px;
+}
+
+#explain{
+  color: #000;
+  font-size: 15px;
+  text-align: center;
+}
+
+.item{
+  position: relative;
+  background-color: transparent;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.item::after{
+  content: '';
+  position: absolute;
+  bottom: -10;
+  left: 5%;
+  width: 90%;
+  height: 1px;
+  background-color: #ccc;
+}
+
+
+/* 언어 설정 */
+
+
+.language-settings h2{
+  padding: 20px;
+  margin: 0;
+  border-bottom: 1px solid #ccc;
+  color: #7F7F7F;
+}
+
+#title_item{
+  color: #000;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 10px 40px 0;
+}
+
+.language-selector {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 40px;
+  background-color: transparent;
+}
+
+
+.language-dropdown {
+  padding: 5px;
+  font-size: 15px;
+  border: none;
+  background-color: transparent;
+}
+
+/* 디스플레이 설정 */
+
+.display-settings h2{
+  padding: 20px;
+  margin: 0;
+  border-bottom: 1px solid #ccc;
+  color: #7F7F7F;
+}
+
+.item span{
+  display: block;
+  margin-bottom: 10px;
+}
+
+.size-slider {
+  display: flex;
+  width: 80%;
+  align-items: center;
+  
+}
+
+.small{
+  margin-right: 5px;
+  margin-top: 8px;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.big{
+  margin: 0 10px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+
+.size-slider input {
+  flex-grow: 1;
+  margin: 0 10px; /* 슬라이더 좌우 간격 */
+  background-color: #a7c0f1;
+  border: none;
+  border-radius: 5px;
+}
+
+#fontSelect {
+  width: 20%; /* 셀렉트 박스 너비 조정 */
+  padding: 5px;
+  font-size: 14px;
+  background-color: transparent;
+  border: none;
+}
+
+
+/* 친구 설정 */
+.friend-settings h2{
+  padding: 20px;
+  margin: 0;
+  border-bottom: 1px solid #ccc;
+  color: #7F7F7F;
+}
+
+
+/* 사운드 설정 */
+
+.sound-settings h2{
+  padding: 20px;
+  margin: 0;
+  border-bottom: 1px solid #ccc;
+  color: #7F7F7F;
+}
+
+/* main_assets */
+#main_assets{
+  width: 22px;
+  height: 22px;
+  margin-right: 10px;
 }

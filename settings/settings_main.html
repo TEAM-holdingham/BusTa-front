@@ -39,6 +39,7 @@
             <path d="M21.9988 2L11 12.9988" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             <path d="M21.9978 2L14.9986 21.9978L10.999 12.9988L2 8.99924L21.9978 2Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
+            <!-- <img src="../assets/dm.svg"> -->
         </a>
         <a href="../notification/notification_main.html" class="alarm-link">
         <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -96,8 +97,6 @@
         <a href="#" class="logout-link">로그아웃</a>
     </div>
 
-
-
     <span class="arrow" onclick="toggleNav()">
         <svg width="26" height="31" viewBox="0 0 26 31" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M23.6905 15.6759L14.6078 28.0217L14.6078 28.0217L14.6037 28.0274C14.1386 28.6656 13.3513 29.0708 12.5106 29.0708C10.3379 29.0708 9.27292 26.7742 10.4109 25.2359L10.4146 25.2308L17.0103 16.2384L17.6872 15.3155L17.0103 14.3927L10.416 5.40211C10.4158 5.40185 10.4156 5.40158 10.4154 5.40132C9.27998 3.84736 10.3558 1.56034 12.5106 1.56034C13.3421 1.56034 14.1107 1.95812 14.5812 2.6037L14.5812 2.60371L14.5853 2.60935L23.6793 14.9706C23.8374 15.1857 23.8423 15.4533 23.6905 15.6759Z" fill="#8D8D8D" stroke="#E4E8F0" stroke-width="3.12067"/>
@@ -112,7 +111,7 @@
             <h2>설정</h2>
             <div class="userprofile">
                 <div>
-                    <img src="../assets/최강예현.png" alt="MainProfile">
+                    <img src="../assets/허다닥.svg" alt="MainProfile">
                     <div class="chat-info">
                         <h3>허다닥</h3>
                         <p>heodadadac@gmail.com</p>
@@ -121,36 +120,33 @@
                 </div>
                 <div class="my_info">"아무도 내 질주를 막지 마세요. 그 누구도"</div>
             </div>
-            <div class="settings-list-item" onclick="">
+            <div class="settings-list-item" onclick="showFriendSettings()">
                 <span>
-                    <img src="../assets/setting_친구.png" id="settings_assets">
+                    <img src="../assets/친구.svg" id="settings_assets">
                     친구
                 </span>
             </div>
-            <div class="settings-list-item" onclick="">
+            <div class="settings-list-item" onclick="showLanguageSettings()">
                 <span>
-                    <img src="../assets/settings_언어.png" id="settings_assets">
+                    <img src="../assets/언어.svg" id="settings_assets">
                     언어
                 </span>
             </div>
-            <div class="settings-list-item" onclick="">
+            <div class="settings-list-item" onclick="showDisplaySettings()">
                 <span>
-                    <img src="../assets/settings_디스플레이.png" id="settings_assets">
+                    <img src="../assets/디스플레이.svg" id="settings_assets">
                     디스플레이
                 </span>
             </div>
-            <div class="settings-list-item" onclick="">
+            <div class="settings-list-item" onclick="showSoundSettings()">
                 <span>
-                    <img src="../assets/settings_사운드.png" id="settings_assets">
+                    <img src="../assets/사운드.svg" id="settings_assets">
                     사운드
                 </span>
             </div>
         </div>
-    </div>
-
-    <div class="settings-main">
-        <div id="settingskind">
-
+        <div class="settings-main" id="settingsMain">
+            <!-- 초기에는 비어있음 -->
         </div>
     </div>
 

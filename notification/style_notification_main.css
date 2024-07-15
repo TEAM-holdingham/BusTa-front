@@ -110,18 +110,18 @@ body {
  
 
 /* 여기서부터 notification_style */
-
 .notification_main {
   display: flex;
   flex-direction: column;
   padding: 20px;
   height: 100vh;
-  margin-left: 250px; /* 사이드바 너비만큼 여백 추가 */
-  width: calc(100% - 250px); /* 전체 너비에서 사이드바 너비를 뺀 만큼 설정 */
+  margin-left: 250px;
+  width: calc(100% - 250px);
   transition: 0.5s;
   box-sizing: border-box;
 }
 
+/* 제목 */
 .mainTitle {
   display: flex;
   align-items: center;
@@ -140,7 +140,7 @@ body {
   margin-top: 20px;
 }
 
-
+/* 알림들 */
 .notification-scroll {
   overflow-y: auto;
   flex-grow: 1;
@@ -159,10 +159,11 @@ body {
 }
 
 .notification-date {
-  font-size: 14px;
+  font-size: 18px;
   color: #91B6FA;
   margin-bottom: 10px;
   font-weight: 700;
+  padding: 5px;
 }
 
 .notification-item {
@@ -185,6 +186,7 @@ body {
   flex-grow: 1;
 }
 
+/* 수락/거절 버튼 */
 .accept-btn, .reject-btn {
   padding: 5px 10px;
   margin-left: 10px;
@@ -196,13 +198,23 @@ body {
 
 .accept-btn, .reject-btn {
   background-color: #91B6FA;
-  color: #000;
+  color: #000;  
+  margin-left: 10px;
 }
 
 
-/* 모달 스타일 */
-.accept-btn, .reject-btn {
-  margin-left: 10px;
+/* 모달(창) 스타일 */
+#confirmBtn{
+  background-color: #B8FDC8;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+#cancelBtn {
+  background-color: #BFD6FF;
+  border-radius: 3px;
+  border: 1px solid #ccc;
 }
 
 .modal {
