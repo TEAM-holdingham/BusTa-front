@@ -115,12 +115,13 @@ body {
   flex-direction: column;
   padding: 20px;
   height: 100vh;
-  margin-left: 250px; /* 사이드바 너비만큼 여백 추가 */
-  width: calc(100% - 250px); /* 전체 너비에서 사이드바 너비를 뺀 만큼 설정 */
+  margin-left: 250px;
+  width: calc(100% - 250px);
   transition: 0.5s;
   box-sizing: border-box;
 }
 
+/* 제목 */
 .mainTitle {
   display: flex;
   align-items: center;
@@ -139,6 +140,7 @@ body {
   font-size: 24px;
 }
 
+/* 공지 사항들 */
 .announcements {
   background-color: transparent;
   font-size: 15px;

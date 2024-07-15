@@ -115,12 +115,13 @@ body {
   flex-direction: column;
   padding: 20px;
   height: 100vh;
-  margin-left: 250px; /* 사이드바 너비만큼 여백 추가 */
-  width: calc(100% - 250px); /* 전체 너비에서 사이드바 너비를 뺀 만큼 설정 */
+  margin-left: 250px;
+  width: calc(100% - 250px); 
   transition: 0.5s;
   box-sizing: border-box;
 }
 
+/* 제목 */
 .mainTitle {
   display: flex;
   align-items: center;
@@ -139,6 +140,8 @@ body {
   margin-top: 20px;
 }
 
+
+/* 공지 내용 */
 h2 {
   margin-top: 0;
   color: #333;
@@ -175,6 +178,7 @@ h2 {
   height: 80vh;
 }
 
+/* 엑스버튼 */
 .goback{
   background-color: transparent;
   border: none;
@@ -184,9 +188,6 @@ h2 {
   top: 135px;
 }
 
-.goback:hover{
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
 .goback img {
   width: 20px;
   height: 20px;
