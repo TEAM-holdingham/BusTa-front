@@ -194,9 +194,9 @@ body {
   font-size: 16px;
 }
 
-/* .settings-list-item.active {
+.settings-list-item.active {
   background-color: #F1F1F1;
-} */
+}
 
 .settings-list-item:hover{
   background-color: #EEEEEE;
@@ -207,6 +207,7 @@ body {
 }
 
 /* 설정 세부 공통 내용 */
+
 .settings-main {
   flex: 2;
   display: flex;
@@ -228,24 +229,36 @@ body {
 
 .item{
   position: relative;
-  background-color: transparent;
-  padding: 15px;
-  margin-bottom: 15px;
+  padding: 5px;
+  margin-bottom: 5px;
 }
 
 .item::after{
   content: '';
   position: absolute;
-  bottom: -10;
+  bottom: 0;
   left: 5%;
   width: 90%;
   height: 1px;
   background-color: #ccc;
 }
 
+.selector {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 40px;
+  background-color: transparent;
+}
+
+
+.dropdown {
+  cursor: pointer;
+  font-size: 15px;
+  border: none;
+  background-color: transparent;
+}
 
 /* 언어 설정 */
-
 
 .language-settings h2{
   padding: 20px;
@@ -258,22 +271,7 @@ body {
   color: #000;
   font-size: 20px;
   font-weight: bold;
-  margin: 10px 40px 0;
-}
-
-.language-selector {
-  display: flex;
-  justify-content: flex-end;
-  margin-right: 40px;
-  background-color: transparent;
-}
-
-
-.language-dropdown {
-  padding: 5px;
-  font-size: 15px;
-  border: none;
-  background-color: transparent;
+  margin: 10px 0 10px 40px;
 }
 
 /* 디스플레이 설정 */
@@ -294,7 +292,16 @@ body {
   display: flex;
   width: 80%;
   align-items: center;
-  
+  margin: 10px auto;
+}
+
+.size-slider input {
+  flex-grow: 1;
+  margin: 0 10px; /* 슬라이더 좌우 간격 */
+  background-color: #a7c0f1;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .small{
@@ -311,24 +318,8 @@ body {
 }
 
 
-.size-slider input {
-  flex-grow: 1;
-  margin: 0 10px; /* 슬라이더 좌우 간격 */
-  background-color: #a7c0f1;
-  border: none;
-  border-radius: 5px;
-}
-
-#fontSelect {
-  width: 20%; /* 셀렉트 박스 너비 조정 */
-  padding: 5px;
-  font-size: 14px;
-  background-color: transparent;
-  border: none;
-}
-
-
 /* 친구 설정 */
+
 .friend-settings h2{
   padding: 20px;
   margin: 0;
@@ -347,6 +338,7 @@ body {
 }
 
 /* main_assets */
+
 #main_assets{
   width: 22px;
   height: 22px;

@@ -282,16 +282,16 @@ body {
 
 
 .input-container input[type="text"] {
-    flex: 1;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    margin-right: 10px;
+  flex: 1;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  margin-right: 10px;
 }
 
 
 .input-container, .sidebar-closed {
-    width: calc(75% - 150px);
+  width: calc(75% - 150px);
 }
 
 .sendButton{
