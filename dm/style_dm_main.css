@@ -196,6 +196,13 @@ body {
   font-size: 16px;
 }
 
+.chat-list-item > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 10px;
+}
+
 .chat-list-item.active {
   background-color: #F1F1F1;
 }
@@ -210,6 +217,17 @@ body {
 
 .name{
   padding: 10px;
+  font-size: 16px;
+}
+
+.preview {
+  font-size: 14px;
+  color: #888;
+  white-space: nowrap;
+  overflow: hidden;
+  margin-left: 10px;
+  text-overflow: ellipsis;
+  max-width: 200px;
 }
 
 /* 채팅방 */

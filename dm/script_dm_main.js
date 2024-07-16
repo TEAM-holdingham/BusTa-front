@@ -86,6 +86,23 @@ function showChat(chatId) {
     chatMessagesContainer.scrollTop = chatMessagesContainer.scrollHeight;   
 }
 
+// 채팅 목록 업데이트 함수
+function updateChatList() {
+    const chatListItems = document.querySelectorAll('.chat-list-item');
+    chatListItems.forEach((item, index) => {
+        const chatId = index + 1;
+        const lastMessage = messages[chatId][messages[chatId].length - 1];
+        const previewElement = item.querySelector('.preview');
+        previewElement.textContent = lastMessage.content;
+    });
+}
+
+// 페이지 로드 시와 새 메시지 전송 후 채팅 목록 업데이트
+window.onload = function() {
+    openNav();
+    updateChatList();
+}
+
 
 // 메시지 전송 함수
 function sendMessage() {
@@ -115,6 +132,8 @@ function sendMessage() {
 
     // 다시 채팅창 업데이트
     showChat(chatId);
+
+    updateChatList();
 }
 
 
