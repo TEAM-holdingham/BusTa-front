@@ -67,8 +67,8 @@ function showLanguageSettings() {
             <h2><img src="../assets/언어.svg" id="main_assets">언어</h2>
             <div class="item">
                 <span id="title_item">언어</span>
-                <div class="language-selector">
-                    <select class="language-dropdown">
+                <div class="selector">
+                    <select class="dropdown">
                         <option>한국어</option>
                         <option>English(US)</option>
                         <option>中文</option>
@@ -98,11 +98,13 @@ function showDisplaySettings() {
             </div>
             <div class="item">
                 <span id="title_item">폰트</span>
-                <select id="fontSelect">
-                    <option value="inter">Inter</option>
-                    <option value="bold">Bold</option>
-                    <!-- 다른 폰트 옵션들 추가 -->
-                </select>
+                <div class="selector">
+                    <select class="dropdown">
+                        <option value="inter">Inter</option>
+                        <option value="bold">Bold</option>
+                        <!-- 다른 폰트 옵션들 추가 -->
+                    </select>
+                </div>
                 <p id="explain">사용자 인터페이스에서 사용되는 폰트를 변경합니다.</p>
             </div>
         </div>
