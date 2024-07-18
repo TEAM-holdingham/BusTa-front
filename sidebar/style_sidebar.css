@@ -1,5 +1,6 @@
 body {
   font-family: "KimjungchulGothic-Bold";
+  background-color: #FCF6F5;
 }
 
 .sidenav {
@@ -11,6 +12,7 @@ body {
   left: 0;
   background-color: #E4E8F0;
   overflow-x: hidden;
+  overflow-y: hidden;
   transition: 0.5s;
   padding-top: 60px;
 }
@@ -59,7 +61,7 @@ body {
 }
 
 .sidenav .dm-link img:hover {
-  content: url('h-dm.svg');
+  content: url('../assets/h-dm.svg');
 }
 
 .sidenav .alarm-link img {
@@ -70,7 +72,7 @@ body {
 }
 
 .sidenav .alarm-link img:hover {
-  content: url('h-alarm.svg');
+  content: url('../assets/h-alarm.svg');
 }
 
 .sidenav .notify-link img {
@@ -81,7 +83,7 @@ body {
 }
 
 .sidenav .notify-link img:hover {
-  content: url('h-notify.svg');
+  content: url('../assets/');
 }
 
 .sidenav .profile-link img {
