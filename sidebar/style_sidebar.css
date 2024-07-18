@@ -83,7 +83,7 @@ body {
 }
 
 .sidenav .notify-link img:hover {
-  content: url('../assets/');
+  content: url('../assets/h-notify.svg');
 }
 
 .sidenav .profile-link img {
