@@ -45,40 +45,31 @@ function performLogin() {
   const password = document.getElementById("password").value;
 
   const apiUrl =
-    "https://port-0-busta-lyumntwj5a7765e6.sel4.cloudtype.app/security-login/login";
+    "https://port-0-busta-lyumntwj5a7765e6.sel4.cloudtype.app/security-login/api/login";
 
   fetch(apiUrl, {
     method: "POST",
     headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
+      "Content-Type": "application/json",
     },
-    body: new URLSearchParams({
+    body: JSON.stringify({
       loginId: email,
       password: password,
     }),
     credentials: "include",
-    redirect: "manual", // 리다이렉트를 수동으로 처리
   })
     .then((response) => {
-      if (response.type === "opaqueredirect") {
-        // 리다이렉트 발생
-        window.location.href =
-          "https://port-0-busta-lyumntwj5a7765e6.sel4.cloudtype.app/security-login";
-      } else if (response.ok) {
-        return response.text();
-      } else {
+      if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
+      return response.json();
     })
-    .then((text) => {
-      if (
-        text &&
-        (text.includes("로그인 성공") || text.includes("환영합니다"))
-      ) {
+    .then((data) => {
+      if (data.status === "success") {
         console.log("로그인 성공");
         window.location.href = "../../home/home.html";
       } else {
-        throw new Error("로그인 실패: 예상치 못한 응답");
+        throw new Error("로그인 실패");
       }
     })
     .catch((error) => {
