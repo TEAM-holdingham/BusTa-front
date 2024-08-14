@@ -1,7 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
+  const loginForm = document.getElementById("loginForm");
+  const emailInput = document.getElementById("email");
   const passwordInput = document.getElementById("password");
   const showPasswordButton = document.getElementById("showPassword");
-  const loginForm = document.getElementById("loginForm");
 
   showPasswordButton.addEventListener("click", function () {
     const type =
@@ -46,39 +47,40 @@ function performLogin() {
   const apiUrl =
     "https://port-0-busta-lyumntwj5a7765e6.sel4.cloudtype.app/security-login/login";
 
-  const formData = new URLSearchParams();
-  formData.append("loginId", email);
-  formData.append("password", password);
-
   fetch(apiUrl, {
     method: "POST",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
     },
-    body: formData,
-    redirect: "follow",
+    body: new URLSearchParams({
+      loginId: email,
+      password: password,
+    }),
+    credentials: "include", // 중요: 쿠키를 포함하여 요청
   })
     .then((response) => {
-      console.log("Response URL:", response.url);
-      if (response.url.endsWith("/security-login")) {
-        console.log("로그인 성공");
-        // 로그인 성공 처리
-        window.location.href = "../../home/home.html";
-      } else if (response.url.endsWith("/security-login/login")) {
-        throw new Error("로그인 실패: 아이디 또는 비밀번호가 잘못되었습니다.");
+      if (response.ok) {
+        if (response.redirected) {
+          // 리다이렉션이 발생한 경우 (로그인 성공)
+          console.log("로그인 성공");
+          window.location.href = response.url; // 서버가 지정한 URL로 리다이렉트
+        } else {
+          // 리다이렉션이 없는 경우 응답 내용 확인
+          return response.text().then((text) => {
+            if (text.includes("로그인 성공") || text.includes("환영합니다")) {
+              console.log("로그인 성공");
+              window.location.href = "../../home/home.html";
+            } else {
+              throw new Error("로그인 실패: 예상치 못한 응답");
+            }
+          });
+        }
       } else {
-        throw new Error("예상치 못한 응답");
+        throw new Error(`HTTP error! status: ${response.status}`);
       }
-      return response.text();
-    })
-    .then((html) => {
-      console.log("서버 응답:", html);
     })
     .catch((error) => {
       console.error("Error:", error);
-      alert(
-        error.message ||
-          "로그인에 실패했습니다. 이메일과 비밀번호를 확인해주세요."
-      );
+      alert("로그인에 실패했습니다. 이메일과 비밀번호를 확인해주세요.");
     });
 }
