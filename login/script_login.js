@@ -56,27 +56,29 @@ function performLogin() {
       loginId: email,
       password: password,
     }),
-    credentials: "include", // 중요: 쿠키를 포함하여 요청
+    credentials: "include",
+    redirect: "manual", // 리다이렉트를 수동으로 처리
   })
     .then((response) => {
-      if (response.ok) {
-        if (response.redirected) {
-          // 리다이렉션이 발생한 경우 (로그인 성공)
-          console.log("로그인 성공");
-          window.location.href = response.url; // 서버가 지정한 URL로 리다이렉트
-        } else {
-          // 리다이렉션이 없는 경우 응답 내용 확인
-          return response.text().then((text) => {
-            if (text.includes("로그인 성공") || text.includes("환영합니다")) {
-              console.log("로그인 성공");
-              window.location.href = "../../home/home.html";
-            } else {
-              throw new Error("로그인 실패: 예상치 못한 응답");
-            }
-          });
-        }
+      if (response.type === "opaqueredirect") {
+        // 리다이렉트 발생
+        window.location.href =
+          "https://port-0-busta-lyumntwj5a7765e6.sel4.cloudtype.app/security-login";
+      } else if (response.ok) {
+        return response.text();
       } else {
         throw new Error(`HTTP error! status: ${response.status}`);
+      }
+    })
+    .then((text) => {
+      if (
+        text &&
+        (text.includes("로그인 성공") || text.includes("환영합니다"))
+      ) {
+        console.log("로그인 성공");
+        window.location.href = "../../home/home.html";
+      } else {
+        throw new Error("로그인 실패: 예상치 못한 응답");
       }
     })
     .catch((error) => {
