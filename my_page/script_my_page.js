@@ -66,7 +66,7 @@ function fetchFromServer() {
 
   fetch(apiUrl, {
     method: "GET",
-    credentials: "include",
+    credentials: "include", // 쿠키를 포함하여 요청
   })
     .then((response) => {
       if (!response.ok) {
