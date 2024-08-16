@@ -67,6 +67,8 @@ function performLogin() {
     .then((data) => {
       if (data.status === "success") {
         console.log("로그인 성공");
+        //세션 정보 저장!
+        localStorage.setItem("userSession", JSON.stringify(data.user));
         window.location.href = "../../home/home.html";
       } else {
         throw new Error("로그인 실패");
