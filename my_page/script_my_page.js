@@ -40,50 +40,78 @@ function toggleEdit(id) {
 }
 
 function fetchUserInfo() {
+  const userSession = localStorage.getItem("userSession");
+
+  if (userSession) {
+    try {
+      const userData = JSON.parse(userSession);
+      if (userData && userData.user) {
+        displayUserInfo(userData.user);
+      } else {
+        throw new Error("Invalid user data in session");
+      }
+    } catch (error) {
+      console.error("Error parsing user session:", error);
+      localStorage.removeItem("userSession");
+      fetchFromServer();
+    }
+  } else {
+    fetchFromServer();
+  }
+}
+
+function fetchFromServer() {
   const apiUrl =
-    "https://port-0-busta-lyumntwj5a7765e6.sel4.cloudtype.app/profile";
+    "https://port-0-busta-lyumntwj5a7765e6.sel4.cloudtype.app/security-login/api/my-page";
 
   fetch(apiUrl, {
     method: "GET",
-    credentials: "include", // 쿠키를 포함하여 요청
+    credentials: "include",
   })
     .then((response) => {
       if (!response.ok) {
-        if (response.status === 401) {
-          throw new Error("인증 실패: 다시 로그인해주세요.");
-        }
-        throw new Error("Network response was not ok");
+        throw new Error(`HTTP error! status: ${response.status}`);
       }
       return response.json();
     })
     .then((data) => {
-      displayUserInfo(data);
+      console.log("받아온 사용자 정보:", data);
+      if (data.status === "success" && data.user) {
+        displayUserInfo(data.user);
+        localStorage.setItem("userSession", JSON.stringify(data));
+      } else {
+        throw new Error(
+          data.message || "사용자 정보를 가져오는데 실패했습니다."
+        );
+      }
     })
     .catch((error) => {
       console.error("Error fetching user info:", error);
       alert(error.message || "사용자 정보를 가져오는데 실패했습니다.");
-      if (error.message.includes("인증 실패")) {
+      if (error.message.includes("인증") || error.response?.status === 401) {
         window.location.href = "../login/login.html";
       }
     });
 }
 
 function displayUserInfo(userInfo) {
-  // 각 필드에 사용자 정보 표시
+  if (!userInfo) {
+    console.error("User info is null or undefined");
+    return;
+  }
+
   setElementValue("nickname", userInfo.nickname);
   setElementValue("email", userInfo.loginId);
   setElementValue("phone", userInfo.phoneNumber);
   setElementValue("dob", userInfo.birthDate);
   setElementValue("gender", userInfo.gender);
 
-  // 태그라인(소개) 표시
+  // 태그라인(소개) 표시 수정
   const taglineElement = document.querySelector(".tagline");
   if (taglineElement) {
-    taglineElement.textContent =
-      userInfo.introduction || "온 세상의 다크서클을 모아 심연이 될 때까지";
+    taglineElement.textContent = userInfo.introduction || "";
   }
 
-  // 프로필 이미지 표시 (만약 HTML에 이미지 요소가 있다면)
   const profileImage = document.querySelector(".profile-picture");
   if (profileImage && userInfo.profilePicture) {
     profileImage.src = userInfo.profilePicture;
@@ -93,6 +121,17 @@ function displayUserInfo(userInfo) {
 function setElementValue(id, value) {
   const element = document.getElementById(id);
   if (element) {
-    element.value = value || "";
+    if (element.tagName === "INPUT") {
+      element.value = value || "";
+    } else {
+      element.textContent = value || "";
+    }
   }
+}
+
+// 로그아웃 화면에 연결 필요
+
+function logout() {
+  localStorage.removeItem("userSession");
+  window.location.href = "../login/login.html";
 }
