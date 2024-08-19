@@ -2,13 +2,11 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>나의 기록 - 타임 랩스</title>
+    <title>친구 목록</title>
     <link rel="stylesheet" href="../sidebar/style_sidebar.css">
-    <link rel="stylesheet" href="style_timelaps.css">
+    <link rel="stylesheet" href="friends_styles.css">
 </head>
 <body>
-
     <div id="mySidenav" class="sidenav">
         <a href="#" class="closebtn" onclick="toggleNav()">
             <img src="../assets/close.svg" alt="접기">
@@ -47,29 +45,43 @@
     </span>
 
 
+<div id="main">
 
-    <div class="container">
-        <header>
-            <h1>나의 기록</h1>
-            <nav>
-                <a href="goals.html">오늘의 목표</a>
-                <a href="timelaps.html" class="active">타임 랩스</a>
-            </nav>
-        </header>
-        <main>
-            <div class="date">
-                <div class="date-icon"></div>
-                <span>2024.02.18.(일)</span>
-            </div>
-            <ul class="task-list">
-                <li class="task">총알 오징어 (1/4) 7:39 까지 들음</li>
-                <li class="task">화장실 갔다가 물 마심</li>
-                <li class="task">총알 오징어 (1/4) 다 듣고 노션에 정리 시작</li>
-                <li class="task">잠깐 핸드폰 사용</li>
-                <li class="task">총알 오징어 (1/4) 정리 완료</li>
-            </ul>
-        </main>
+    <h1>친구 목록</h1>
+
+<div class="search-request-container">
+    <div class="load-requests-container">
+        <!--<h2>친구 요청 대기</h2>-->
+        <button id="load-requests-button">
+            <img src="newfriend.svg" alt="새친구" />
+        </button>
+        <ul id="pending-requests">
+            <!-- 대기 중인 요청들이 여기에 나옴 -->
+        </ul>
     </div>
-    <script src="style_timelaps.js"></script>
+
+    <div>
+        <!--<h2>친구 검색</h2>-->
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="닉네임 검색">
+            <button id="search-button">
+                <img src="search.svg" alt="검색" />
+            </button>
+        </div>        
+        <ul id="search-results">
+            <!-- 검색 결과가 여기에 나옴 -->
+        </ul>
+    </div>
+</div>
+
+    <div>
+        <h2>친구 리스트가 뜰자리임</h2>
+        <ul id="friends-list">
+            <!-- 친구 목록이 여기에 나옴 -->
+        </ul>
+    </div>
+</div>
+    <script src="../sidebar/script_sidebar.js"></script>
+    <script src="friends_script.js"></script>
 </body>
 </html>
