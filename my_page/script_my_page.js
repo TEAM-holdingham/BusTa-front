@@ -7,16 +7,10 @@ window.onload = function () {
 
 function checkSessionAndFetchUserInfo() {
   const isLoggedIn = localStorage.getItem("isLoggedIn");
-  const jsessionid = localStorage.getItem("JSESSIONID");
-
-  if (isLoggedIn !== "true" || !jsessionid) {
+  if (isLoggedIn !== "true") {
     window.location.href = "../login/login.html";
     return;
   }
-
-  // JSESSIONID를 쿠키에 설정 (만약 쿠키가 삭제되었을 경우를 대비)
-  document.cookie = `JSESSIONID=${jsessionid}; path=/; SameSite=None; Secure`;
-
   fetchUserInfo();
 }
 
@@ -24,8 +18,23 @@ function fetchUserInfo() {
   const apiUrl =
     "https://port-0-busta-lyumntwj5a7765e6.sel4.cloudtype.app/security-login/api/my-page";
 
-  fetchWithSession(apiUrl)
-    .then((response) => response.json())
+  fetch(apiUrl, {
+    method: "GET",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    credentials: "include",
+  })
+    .then((response) => {
+      if (!response.ok) {
+        if (response.status === 401) {
+          throw new Error("인증 실패");
+        }
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      return response.json();
+    })
     .then((data) => {
       console.log("받아온 사용자 정보:", data);
       if (data.user) {
@@ -38,36 +47,11 @@ function fetchUserInfo() {
       console.error("Error fetching user info:", error);
       alert(error.message || "사용자 정보를 가져오는데 실패했습니다.");
       if (error.message === "인증 실패" || error.response?.status === 401) {
-        logout();
+        localStorage.removeItem("isLoggedIn");
+        localStorage.removeItem("userEmail");
+        window.location.href = "../login/login.html";
       }
     });
-}
-
-function fetchWithSession(url, options = {}) {
-  const jsessionid = localStorage.getItem("JSESSIONID");
-  if (!jsessionid) {
-    throw new Error("세션이 유효하지 않습니다.");
-  }
-
-  const defaultOptions = {
-    credentials: "include",
-    headers: {
-      ...options.headers,
-      Accept: "application/json",
-      "Content-Type": "application/json",
-      Cookie: `JSESSIONID=${jsessionid}`,
-    },
-  };
-
-  return fetch(url, { ...defaultOptions, ...options }).then((response) => {
-    if (!response.ok) {
-      if (response.status === 401) {
-        throw new Error("인증 실패");
-      }
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    return response;
-  });
 }
 
 function displayUserInfo(userInfo) {
@@ -107,13 +91,11 @@ function setElementValue(id, value) {
 
 function logout() {
   localStorage.removeItem("isLoggedIn");
-  localStorage.removeItem("JSESSIONID");
   localStorage.removeItem("userEmail");
-  document.cookie =
-    "JSESSIONID=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
   window.location.href = "../login/login.html";
 }
 
+// 사이드바 관련 함수들
 function toggleNav() {
   const sidenav = document.getElementById("mySidenav");
   if (sidenav) {
