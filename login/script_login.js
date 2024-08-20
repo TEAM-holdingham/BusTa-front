@@ -47,29 +47,35 @@ function performLogin() {
   const apiUrl =
     "https://port-0-busta-lyumntwj5a7765e6.sel4.cloudtype.app/security-login/api/login";
 
+  const formData = new URLSearchParams();
+  formData.append("loginId", email);
+  formData.append("password", password);
+
   fetch(apiUrl, {
     method: "POST",
     headers: {
-      "Content-Type": "application/json",
+      "Content-Type": "application/x-www-form-urlencoded",
     },
-    body: JSON.stringify({
-      loginId: email,
-      password: password,
-    }),
+    body: formData.toString(),
     credentials: "include",
   })
     .then((response) => {
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
-      return response.json();
+      return response.text();
     })
     .then((data) => {
-      if (data.status === "success") {
+      if (data === "loginhome") {
         console.log("로그인 성공");
-        //세션 정보 저장!
-        localStorage.setItem("userSession", JSON.stringify(data.user));
-        window.location.href = "../../home/home.html";
+        localStorage.setItem("isLoggedIn", "true");
+        localStorage.setItem("userEmail", email);
+        // 세션 유지를 위해 JSESSIONID를 localStorage에 저장
+        const jsessionid = getCookie("JSESSIONID");
+        if (jsessionid) {
+          localStorage.setItem("JSESSIONID", jsessionid);
+        }
+        window.location.href = "../my_page/my_page.html";
       } else {
         throw new Error("로그인 실패");
       }
@@ -78,4 +84,11 @@ function performLogin() {
       console.error("Error:", error);
       alert("로그인에 실패했습니다. 이메일과 비밀번호를 확인해주세요.");
     });
+}
+
+// 쿠키 값을 가져오는 함수
+function getCookie(name) {
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) return parts.pop().split(";").shift();
 }
