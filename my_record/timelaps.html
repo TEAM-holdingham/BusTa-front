@@ -1,26 +1,27 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>나의 기록 - 타임 랩스</title>
+    <title>나의 타임랩스..</title>
     <link rel="stylesheet" href="../sidebar/style_sidebar.css">
     <link rel="stylesheet" href="style_timelaps.css">
 </head>
-<body>
 
+<body>
     <div id="mySidenav" class="sidenav">
         <a href="#" class="closebtn" onclick="toggleNav()">
             <img src="../assets/close.svg" alt="접기">
             접기
-            </a>
+        </a>
         <a href="#" class="home-link">홈</a>
         <a href="#" class="record-link">나의 기록</a>
         <a href="#" class="mypage-link">마이페이지</a>
         <a href="#" class="friend-link">친구 관리</a>
         <a href="#" class="setting-link">
             <img src="../assets/setting.svg" alt="설정">
-                 설정
+            설정
         </a>
         <a href="#" class="dm-link">
             <img src="../assets/message.svg" alt="디엠">
@@ -40,36 +41,39 @@
         <a href="#" class="logout-link">로그아웃</a>
 
     </div>
-    
+
     <span class="arrow" onclick="toggleNav()">
         <img src="../assets/open.svg" alt="열기" class="openbtn">
-        
+
     </span>
 
-
-
-    <div class="container">
+    <div class="record-container">
         <header>
-            <h1>나의 기록</h1>
+            <h2>나의 기록</h2>
             <nav>
                 <a href="goals.html">오늘의 목표</a>
                 <a href="timelaps.html" class="active">타임 랩스</a>
             </nav>
         </header>
-        <main>
-            <div class="date">
-                <div class="date-icon"></div>
-                <span>2024.02.18.(일)</span>
+        <div id="main">
+            <div class="date-header">
+                <div class="date-info">
+                    <div class="date-icon"><img src="tcalendar.svg"></div>
+                    <span class="date">2024.02.18.(일)</span>
+                </div>
+                <button class="delete-btn">삭제</button>
             </div>
-            <ul class="task-list">
-                <li class="task">총알 오징어 (1/4) 7:39 까지 들음</li>
-                <li class="task">화장실 갔다가 물 마심</li>
-                <li class="task">총알 오징어 (1/4) 다 듣고 노션에 정리 시작</li>
-                <li class="task">잠깐 핸드폰 사용</li>
-                <li class="task">총알 오징어 (1/4) 정리 완료</li>
+            <ul class="record-list">
+                <li>총알 오징어 (1/4) 7:39 까지 들음</li>
+                <li>화장실 갔다가 물 마심</li>
+                <li>총알 오징어 (1/4) 다 듣고 노션에 정리 시작</li>
+                <li>잠깐 핸드폰 사용</li>
+                <li>총알 오정어 (1/4) 정리 완료</li>
             </ul>
-        </main>
+        </div>
     </div>
-    <script src="style_timelaps.js"></script>
+
+    <script src="script_sidebar.js"></script>
 </body>
+
 </html>

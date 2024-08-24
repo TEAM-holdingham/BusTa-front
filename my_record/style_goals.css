@@ -1,142 +1,7 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
-    
-    justify-content: flex-end;
-    margin: 0;
-    padding: 0;
-
+    background-color: #f8f8f8;
 }
-
-
-.sidenav {
-    height: 100%;
-    width: 50px;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #E4E8F0;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
-  }
-  
-  .sidenav a {
-    padding: 4px 8px 4px 50px;
-    text-decoration: none;
-    font-size: 20px;
-    color: #363636;
-    display: block;
-    transition: 0.3s;
-  }
-  
-  .sidenav a:hover {
-    color: #A9CFE2;
-  }
-  
-  .sidenav .home-link {
-    margin-top: 10px;
-  }
-  
-  .sidenav .record-link {
-    margin-top: 10px;
-  }
-  
-  .sidenav .mypage-link {
-    margin-top: 50px;
-  }
-  
-  .sidenav .friend-link {
-    margin-top: 10px;
-  }
-  
-  .sidenav .setting-link svg {
-    width: 20px;
-    height: 20px;
-    margin-top: 50px;
-  }
-  
-  .sidenav .dm-link svg {
-    width: 20px;
-    height: 20px;
-    margin-top: 50px;
-  }
-  
-  .sidenav .alarm-link svg {
-    width: 20px;
-    height: 20px;
-    margin-top: 10px;
-  }
-  
-  .sidenav .notify-link svg {
-    width: 20px;
-    height: 20px;
-    margin-top: 10px;
-  }
-  
-  .sidenav .profile-link svg {
-    width: 50px;
-    height: 50px;
-    margin-top: 50px;
-  }
-  
-  .sidenav .logout-link  {
-    margin-top: 5px;
-    font-size: 15px;
-    margin-bottom: 200px;
-  }
-  
-  .sidenav .closebtn {
-    position: absolute;
-    top: 700px;
-    right: 25px;
-    margin-left: 50px;
-  }
-  
-  .arrow {
-    margin-right: 0px;
-    position: fixed;
-    bottom: 10px;
-    cursor: pointer;
-  }
-  
-  #main {
-    transition: margin-left .5s;
-    padding: 16px;
-  }
-  
-  @media screen and (max-height: 450px) {
-    .sidenav { padding-top: 1500px; }
-    .sidenav a { font-size: 18px; }
-  }
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-.container {
-    max-width: 600px; 
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-*/
 
 header {
     display: flex;
@@ -144,21 +9,35 @@ header {
     align-items: center;
     border-bottom: 2px solid #f0f0f0;
     padding-bottom: 10px;
-    margin-left: 400px;
-    margin-right: 200px;
-    margin-top: 100px;
+    margin: 20px;
+    padding-left: 250px;
+    margin: 0 auto;
+    width: 70%;
+
 }
 
-header h1 {
-    font-size: 44px;
+h2 {
+    font-size: 36px;
     margin: 0;
+   /*width: 70%;*/
+    /*text-align: center;*/
+    color: #333;
+}
+
+
+nav {
+    display: flex;
+    flex-direction:row;
+    justify-content: center;
+    align-items: center;
 }
 
 nav a {
     text-decoration: none;
     color: #888;
-    margin-left: 30px;
-    font-size: 24px;
+    margin: 5px 0;
+    font-size: 28px;
+    padding: 40px;
 }
 
 nav a.active {
@@ -166,71 +45,250 @@ nav a.active {
     font-weight: bold;
 }
 
-.date {
+.record-container {
+    padding: 20px;
+    background-color: #fcf6f5;
+    border-radius: 8px;
+    /*max-width: 600px;*/
+    margin: 40px auto;
+}
+
+.date-info {
     display: flex;
     align-items: center;
-    margin: 20px 0;
 }
 
 .date-icon {
-    width: 24px;
-    height: 24px;
-    background-color: #888;
-    border-radius: 50%;
-    margin-left: 400px;
-    margin-right: 200px;
-    padding-bottom: 10px;
+    margin-left: 50px;
+    margin-right: 10px; /* date-icon과 date 사이의 간격을 조절 */
 }
 
-.task-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+.date-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 5px 0;
+}
+
+.date {
+    font-size: 1.5em;
+    color: #91b6fa;
+    font-weight: bold;
+}
+
+.delete-btn {
+    color: #8e8e93;
+    border: none;
+    background: none;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.remove-task-btn {
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-left: 10px;
+    font-size: 16px;
+    padding: 2px 6px;
+    display: inline-block;
 }
 
 .task {
-    padding: 10px;
-    border-bottom: 1px solid #f0f0f0;
-    display: flex;
-    align-items: center;
-
+    position: relative;
+    padding-right: 40px; /* Space for the remove button */
 }
 
-.task.completed {
-    background-color: #F2F6FF;
-    display: flex;
-    align-items: center;
-    height: 60px;
-    margin-left: 400px;
-    margin-right: 200px;
-    margin-bottom: 5px;
-    background-color: #E4E8F0;
-    padding: 20px;
-    border-radius: 15px;
-    box-sizing: border-box;
+.task-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 auto;
+    width: 90%;
 }
 
-.task.pending {
-    background-color: #ffe0e0;
-    height: 60px;
-    margin-left: 400px;
-    margin-right: 200px;
-    margin-bottom: 5px;
-    padding: 20px;
-    border-radius: 15px;
-    box-sizing: border-box;
+.task-list li {
+    padding: 15px;
+    background-color: #f0f4ff;
+    border: 1px solid #d0daff;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    font-size: 1em;
+    color: #4a4a4a;
+    display: flex;
+    align-items: center;
+}
+
+.task-list li:hover {
+    background-color: #e0e8ff;
+}
+
+.task-list li::before {
+    content: '→';
+    margin-right: 10px;
+    color: #91b6fa;
+    font-weight: bold;
+}
+
+
+/*일단 챗지긁어옴*/
+
+/*
+#addTaskButton  {
+    padding: 15px;
+    background-color: #f0f4ff;
+    border: 1px solid #d0daff;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    font-size: 1em;
+    color: #4a4a4a;
+    display: flex;
+    align-items: center;
+    
+
+    list-style-type: none;
+    padding: 0;
+    margin: 0 auto;
+    width: 90%;
+
+    content: '→';
+    margin-right: 10px;
+    color: #91b6fa;
+    font-weight: bold;
+/*
+    margin-top: 20px;
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    
+    cursor: pointer;
 }
 
 .add-task {
-    display: block;
-    margin: 20px auto;
-    padding: 10px 20px;
-    background-color: #007bff;
-        margin-left: 400px;
-    margin-right: 200px;
-    color: #fff;
+    list-style-type: none;
+    padding: 0;
+    margin: 0 auto;
+    width: 90%;
+}
+
+.add-task:hover {
+    background-color: #e0e8ff;
+}
+*/
+
+
+.task-list li.add-task {
+    text-align: center; /* 버튼을 가운데 정렬 */
+    /*background-color: #e0e8ff; /* 버튼에 다른 배경색을 적용 */
+
+    padding: 5px;
+    background-color: #FCF6F5;
+    /*border: 1px dashed #d0daff;*/
+    border-style: dashed;
+	border-width: 0.25em;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    font-size: 1em;
+    color: #4a4a4a;
+    display: flex;
+    align-items: center;
+}
+
+.task-list li.add-task button {
+    background: none;
     border: none;
-    border-radius: 5px;
+    font-size: 1em;
+    color: #4a4a4a;
+    display: flex;
     cursor: pointer;
-    font-size: 16px;
+    padding: 10px 10px;
+    /*text-decoration: underline; /* 링크처럼 보이도록 밑줄 추가 */
+}
+
+
+/* Popup styling */
+.popup {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    /*background-color: rgba(0,0,0,0.4);*/
+}
+
+.popup-content {
+    background-color: #F2F6FF;
+    /*margin: 15% auto;*/
+    padding: 20px;
+    border: 1px solid #9DBEFB;
+    width: 50%; /* 화면의 약 1/9 크기 */
+    height: 50%; /* 화면의 약 1/9 크기 */
+    position: fixed;
+    top: 50%; /* 화면의 중간에 위치 */
+    left: 50%; /* 화면의 중간에 위치 */
+    transform: translate(-50%, -50%); /* 정중앙으로 이동 */
+    border-radius: 10px; /* 모서리 둥글게 */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); /* 그림자 효과 */
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Delete Confirmation Popup styling */
+#deletePopup .popup-content {
+    width: 30%;
+    height: 30%;
+}
+
+
+#memoPopup .popup-content {
+    width: 500px;
+    height: 300px;
+    align-items: center;
+}
+
+/* 폼 입력 필드 
+.popup-content input[type="text"],
+.popup-content input[type="hidden"] {
+    width: calc(100% - 20px/*);  전체 너비 
+    align-items: center;
+    padding: 100px 100px;
+    margin: 10px 10px;
+    display: inline-block;
+    border: 0.1px solid #d2015c;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #F2F6FF;
+}
+*/
+
+/* 폼 버튼 */
+.popup-content button {
+    /*width: 10%;*/
+    background-color: #F2F6FF;  
+    color: #000000;
+    font-size: 18px;
+    padding: 6px 15px;
+    margin: 1px 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
 }

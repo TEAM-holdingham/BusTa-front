@@ -22,14 +22,3 @@ function closeNav() {
     document.getElementById("mySidenav").style.width = "0px";
     document.getElementById("main").style.marginLeft = "50px";
 }
-
-
-
-
-
-
-
-
-document.addEventListener('DOMContentLoaded', function() {
-    // Add any interactivity if needed for timelaps.html
-});
