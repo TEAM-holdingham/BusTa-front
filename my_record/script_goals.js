@@ -34,7 +34,7 @@ function closeNav() {
 
 
 
-
+/*
 document.addEventListener('DOMContentLoaded', function() {
     const addTaskButton = document.querySelector('.add-task');
     
@@ -44,5 +44,50 @@ document.addEventListener('DOMContentLoaded', function() {
         newTask.className = 'task pending';
         newTask.textContent = '새로운 목표 추가';
         taskList.appendChild(newTask);
+    });
+});
+*/
+
+document.addEventListener('DOMContentLoaded', function() {
+    var addTaskButton = document.getElementById('addTaskButton');
+    var taskPopup = document.getElementById('taskPopup');
+    var closeButton = document.querySelector('.popup .close');
+    var cancelTaskButton = document.getElementById('cancelTaskButton');
+    var taskForm = document.getElementById('taskForm');
+    var taskList = document.getElementById('taskList');
+
+    addTaskButton.addEventListener('click', function() {
+        // Show popup for creating a new task
+        taskForm.reset();
+        taskPopup.style.display = 'block';
+    });
+
+    closeButton.addEventListener('click', function() {
+        taskPopup.style.display = 'none';
+    });
+
+    cancelTaskButton.addEventListener('click', function() {
+        taskPopup.style.display = 'none';
+    });
+
+    window.addEventListener('click', function(event) {
+        if (event.target == taskPopup) {
+            taskPopup.style.display = 'none';
+        }
+    });
+
+    taskForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        var taskContent = document.getElementById('task').value;
+
+        // Create new task item in the list
+        var newTaskItem = document.createElement('li');
+        newTaskItem.classList.add('task', 'pending');
+        newTaskItem.textContent = taskContent;
+
+        taskList.appendChild(newTaskItem);
+
+        // Hide popup
+        taskPopup.style.display = 'none';
     });
 });

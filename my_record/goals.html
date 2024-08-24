@@ -1,26 +1,29 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
+
 <head>
+    <script src="script_sidebar.js"></script>
+    <script src="script_goals.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>나의 기록 - 오늘의 목표</title>
+    <title>나의 타임랩스..</title>
     <link rel="stylesheet" href="../sidebar/style_sidebar.css">
     <link rel="stylesheet" href="style_goals.css">
 </head>
-<body>
 
+<body>
     <div id="mySidenav" class="sidenav">
         <a href="#" class="closebtn" onclick="toggleNav()">
             <img src="../assets/close.svg" alt="접기">
             접기
-            </a>
+        </a>
         <a href="#" class="home-link">홈</a>
         <a href="#" class="record-link">나의 기록</a>
         <a href="#" class="mypage-link">마이페이지</a>
         <a href="#" class="friend-link">친구 관리</a>
         <a href="#" class="setting-link">
             <img src="../assets/setting.svg" alt="설정">
-                 설정
+            설정
         </a>
         <a href="#" class="dm-link">
             <img src="../assets/message.svg" alt="디엠">
@@ -40,35 +43,74 @@
         <a href="#" class="logout-link">로그아웃</a>
 
     </div>
-    
+
     <span class="arrow" onclick="toggleNav()">
         <img src="../assets/open.svg" alt="열기" class="openbtn">
-        
+
     </span>
 
-
-    <div class="container">
+    <div class="record-container">
         <header>
-            <h1>나의 기록</h1>
+            <h2>나의 기록</h2>
             <nav>
                 <a href="goals.html" class="active">오늘의 목표</a>
-                <a href="t_imelaps.html">타임 랩스</a>
+                <a href="timelaps.html">타임 랩스</a>
             </nav>
         </header>
-        <main>
-            <div class="date">
-                <div class="date-icon"><img src="calendar.svg"></div>
-                <span>2024.02.18.(일)</span>
-            </div>
+        <div id="main">
+            <div class="date-header">
+                <div class="date-info">
+                    <!--
+                    <button class="date-icon" id="dateButton">
+                        <img src="calendar.svg" alt="캘린더 아이콘">
+                    </button>-->
+                    <div class="date-icon"><img src="calendar.svg"></div>
+                    <div id="calendarPopup" class="calendar-popup">
+                        <input type="date" id="datePicker">
+                    </div>
+                </div>
+                <button class="delete-btn">삭제</button>
+            </div>            
             <ul class="task-list">
-                <li class="task completed">총알 오징어 (1/4) 듣기</li>
-                <li class="task completed">총알 오징어 (1/4) 노션에 정리하기</li>
-                <li class="task pending">목표 설정 UI 디자인 하기</li>
-                <li class="task pending">총알 오징어 (2/4) 듣기</li>
+                <li class="task completed">
+                    총알 오징어 (1/4) 듣기
+                    <button class="remove-task-btn" style="display:none;">-</button>
+                </li>
+                <li class="task completed">
+                    총알 오징어 (1/4) 노션에 정리하기
+                    <button class="remove-task-btn" style="display:none;">-</button>
+                </li>
+                <li class="task pending">
+                    목표 설정 UI 디자인 하기
+                    <button class="remove-task-btn" style="display:none;">-</button>
+                </li>
+                <li class="task pending">
+                    총알 오징어 (2/4) 듣기
+                    <button class="remove-task-btn" style="display:none;">-</button>
+                </li>
+                <li class="task add-task">
+                    <button id="addTaskButton">목표 추가하기</button>
+                </li>
             </ul>
-            <button class="add-task">목표 추가하기</button>
-        </main>
+
+                <!-- Task Creation Popup -->
+    <div id="taskPopup" class="popup">
+        <div class="popup-content">
+            <span class="close">&times;</span>
+            <h1>목표 생성</h1>
+            <form id="taskForm">
+                <textarea name="task" id="task" cols="72" rows="12" placeholder="목표 내용을 입력하세요"></textarea>
+                <br>
+                <button type="submit">저장</button>
+                <button id="cancelTaskButton" type="button">취소</button>
+            </form>
+        </div>
     </div>
-    <script src="script_goals.js"></script>
+    
+        </div>
+    </div>
+
+
 </body>
+
 </html>
